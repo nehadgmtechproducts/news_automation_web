@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# keep the env template committable
+!.env.example
+
+# large generated videos live in object storage/CDN in production, not git
+public/media/**/*.mp4
