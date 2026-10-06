@@ -10,7 +10,7 @@ import { ShareButton } from "@/components/client/ShareButton";
 import { VideoPlayer } from "@/components/video/VideoPlayer";
 import { siteUrl } from "@/config/env";
 import { formatDate, readingMinutes } from "@/core/format";
-import { slugify } from "@/core/slug";
+import { categoryByName } from "@/core/categories";
 import { JsonLd } from "@/seo/JsonLd";
 import { breadcrumbJsonLd, newsArticleJsonLd, videoObjectJsonLd } from "@/seo/json-ld";
 import { articleMetadata } from "@/seo/metadata";
@@ -35,7 +35,7 @@ export default async function ArticlePage({ params }: PageProps<"/articles/[slug
   if (!article) notFound();
 
   const related = await getRelatedArticles(article);
-  const categoryPath = `/category/${slugify(article.category)}`;
+  const categoryPath = `/category/${categoryByName(article.category)?.slug ?? ""}`;
   const url = new URL(`/articles/${article.slug}`, siteUrl).toString();
 
   return (

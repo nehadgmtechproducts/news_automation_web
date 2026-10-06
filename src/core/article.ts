@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { CATEGORY_NAMES } from "./categories";
 
 /**
  * The content contract between the news pipeline (producer) and this site (consumer).
@@ -43,7 +44,8 @@ export const articleSchema = z.object({
   dek: z.string().min(1),
   /** Goes straight into <meta name="description">; search engines truncate near 160. */
   metaDescription: z.string().min(1).max(200),
-  category: z.string().min(1),
+  /** One of the fixed taxonomy (see categories.ts) — never free text. */
+  category: z.enum(CATEGORY_NAMES),
   /** The main company/product/person the story is about. */
   entity: z.string().min(1),
   publishedAt: isoDateTime,

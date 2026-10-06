@@ -1,6 +1,6 @@
 # The Brief — news site
 
-Public website for the Automated Content Engine. It renders the engine's sourced articles and 45-second videos, built so search engines get complete, fast, server-rendered HTML.
+Public website for the Automated Content Engine. It renders the engine's sourced articles and 45-second videos across five categories (Technology, Politics, Finance, Entertainment, Launches), built so search engines get complete, fast, server-rendered HTML.
 
 **Stack:** Next.js 16 (App Router) · React 19 · TypeScript (strict) · Tailwind CSS 4 · zod · vitest
 
@@ -51,9 +51,13 @@ Not client components, on purpose: the video player (native `<video>`, `preload=
 ## SEO checklist (all implemented)
 Unique `<title>` + meta description per page (title template) · canonical URLs · Open Graph + Twitter cards · JSON-LD `NewsArticle`, `VideoObject` (ISO-8601 duration), `BreadcrumbList`, `WebSite`, `NewsMediaOrganization` · XML sitemap with image **and video** entries · `robots.txt` · RSS · one `<h1>` per page, semantic landmarks, skip link · `next/image` (hero preloaded, rest lazy, responsive sizes) · `next/font` (no layout shift) · no hard-coded "N sources" claims — the badge is computed from real data · honest AI-use disclosure on `/about` and each article.
 
+## Categories
+
+`src/core/categories.ts` is the single list (mirrors `app/categories.py` in the engine). The article schema accepts only these names, the nav and `/category/<slug>` pages are generated from it, and every category has a page even before it has stories — empty ones show a message and are `noindex` and left out of the sitemap until they have content.
+
 ## Content contract
 
-Articles are `content/articles/<slug>.json`, validated by `src/core/article.ts` (`schemaVersion: 1`). Media lives in `public/media/<slug>/{hero.jpg,poster.jpg,video.mp4}`. A file that fails validation is **skipped and logged**, never rendered half-broken. Key rules: ≥ 2 sources, `metaDescription` ≤ 200 chars, lowercase-hyphen `slug`, ISO timestamps, `[n]` citations must reference real sources (tested).
+Articles are `content/articles/<slug>.json`, validated by `src/core/article.ts` (`schemaVersion: 1`). Media lives in `public/media/<slug>/{hero.jpg,poster.jpg,video.mp4}`. A file that fails validation is **skipped and logged**, never rendered half-broken. Key rules: ≥ 2 sources, `category` ∈ the taxonomy, `metaDescription` ≤ 200 chars, lowercase-hyphen `slug`, ISO timestamps, `[n]` citations must reference real sources (tested).
 
 Backend (content-engine) → web mapping: `title`/`dek`/`sections`/`keyTakeaways`/`whyItMatters` from the draft; `sources[]` from the scraped articles; `video` from `media/<id>/final.mp4` (+ first frame as poster); `category` normalized to a single value (`"Technology / Privacy"` → category `Technology`, keyword `Privacy`).
 

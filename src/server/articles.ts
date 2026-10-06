@@ -1,7 +1,7 @@
 import "server-only";
 import { cache } from "react";
 import type { Article } from "@/core/article";
-import { slugify } from "@/core/slug";
+import { CATEGORIES, categoryBySlug } from "@/core/categories";
 import { FileArticleRepository } from "./file-repository";
 import type { ArticleRepository } from "./repository";
 
@@ -36,17 +36,25 @@ export async function getVideoArticles(): Promise<Article[]> {
   return (await getAllArticles()).filter((a) => a.video);
 }
 
-export type CategorySummary = { name: string; slug: string; count: number };
+export type CategorySummary = { name: string; slug: string; description: string; count: number };
 
+/** Every category in the taxonomy, with its story count (possibly 0). */
 export async function getCategories(): Promise<CategorySummary[]> {
-  const counts = new Map<string, number>();
-  for (const a of await getAllArticles()) counts.set(a.category, (counts.get(a.category) ?? 0) + 1);
-  return [...counts].map(([name, count]) => ({ name, slug: slugify(name), count }));
+  const all = await getAllArticles();
+  return CATEGORIES.map((c) => ({
+    name: c.name,
+    slug: c.slug,
+    description: c.description,
+    count: all.filter((a) => a.category === c.name).length,
+  }));
 }
 
+/** null only when the slug is not a real category; an empty category returns articles: []. */
 export async function getArticlesByCategorySlug(
   categorySlug: string,
-): Promise<{ name: string; articles: Article[] } | null> {
-  const articles = (await getAllArticles()).filter((a) => slugify(a.category) === categorySlug);
-  return articles.length ? { name: articles[0].category, articles } : null;
+): Promise<{ name: string; description: string; articles: Article[] } | null> {
+  const category = categoryBySlug(categorySlug);
+  if (!category) return null;
+  const articles = (await getAllArticles()).filter((a) => a.category === category.name);
+  return { name: category.name, description: category.description, articles };
 }

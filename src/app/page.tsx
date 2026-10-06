@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArticleCard } from "@/components/article/ArticleCard";
+import { CATEGORIES } from "@/core/categories";
 import { getAllArticles } from "@/server/articles";
 import { siteConfig } from "@/config/site";
 import { pageMetadata } from "@/seo/metadata";
@@ -39,7 +40,14 @@ export default async function HomePage() {
           </div>
         </section>
       )}
-      <p className="mt-12 text-sm text-muted">
+      <nav aria-label="Browse by topic" className="mt-12 flex flex-wrap gap-2 border-t border-line pt-6">
+        {CATEGORIES.map((c) => (
+          <Link key={c.slug} href={`/category/${c.slug}`} className="rounded-full border border-line bg-surface px-4 py-1.5 text-sm font-medium hover:bg-background">
+            {c.name}
+          </Link>
+        ))}
+      </nav>
+      <p className="mt-6 text-sm text-muted">
         Want the short version? <Link href="/watch" className="text-accent hover:underline">Watch the 45-second videos</Link>.
       </p>
     </>
