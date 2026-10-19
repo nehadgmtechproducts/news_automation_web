@@ -4,20 +4,32 @@
   "slug": "nvidia-open-agent-safety-platform-launch",
   "title": "Nvidia Launches Open Agent Safety Platform to Contain Rogue AI Agents",
   "dek": "The platform uses sandboxing and monitoring on BlueField DPUs to detect and quarantine agents that exceed their boundaries.",
-  "metaDescription": "Nvidia's Open Agent Safety Platform pairs open-source OpenShell with hardware-based Sentry to stop AI agents from reaching unauthorized systems.",
+  "metaDescription": "Nvidia's new Open Agent Safety Platform combines open-source OpenShell and hardware-based Sentry to prevent AI agents from accessing unauthorized systems…",
   "category": "Technology",
+  "region": "Global",
+  "story": {
+    "key": "nvidia-open-agent-safety-platform-launch",
+    "label": "Nvidia agent safety platform"
+  },
   "entity": "Nvidia",
   "publishedAt": "2026-10-01T05:07:51Z",
   "updatedAt": "2026-10-01T05:07:51Z",
   "heroImage": {
-    "src": "/media/nvidia-open-agent-safety-platform-launch/hero.jpg",
+    "src": "/media/nvidia-open-agent-safety-platform-launch/cover-a2937151.jpg",
+    "width": 1600,
+    "height": 900,
+    "alt": "AI-generated illustration for the story: Nvidia Launches Open Agent Safety Platform to Contain Rogue AI Agents",
+    "credit": "Illustration generated with AI"
+  },
+  "socialImage": {
+    "src": "/media/nvidia-open-agent-safety-platform-launch/social-f0bbf8bf.jpg",
     "width": 1200,
     "height": 675,
-    "alt": "Editorial card for the story: Nvidia Launches Open Agent Safety Platform to Contain Rogue AI Agents"
+    "alt": "Story card: Nvidia Launches Open Agent Safety Platform to Contain Rogue AI Agents"
   },
   "video": {
-    "src": "/media/nvidia-open-agent-safety-platform-launch/video.mp4",
-    "poster": "/media/nvidia-open-agent-safety-platform-launch/poster.jpg",
+    "src": "/media/nvidia-open-agent-safety-platform-launch/video-7f156408.mp4",
+    "poster": "/media/nvidia-open-agent-safety-platform-launch/poster-1ca47f2c.jpg",
     "width": 1080,
     "height": 1920,
     "durationSeconds": 27.11

@@ -6,21 +6,33 @@
   "dek": "The Nvidia-backed company’s first open-weight model targets coding, reasoning and agentic tasks, with weights and technical documentation planned for October.",
   "metaDescription": "Reflection AI unveiled Beam, an open-weight model it says matches GLM-5.2 reasoning performance with less inference compute. Weights are due in October.",
   "category": "Technology",
+  "region": "Global",
+  "story": {
+    "key": "reflection-ai-beam-lower-compute-claims",
+    "label": "Reflection AI Beam model"
+  },
   "entity": "Reflection AI",
   "publishedAt": "2026-10-06T09:12:33Z",
   "updatedAt": "2026-10-06T09:12:33Z",
   "heroImage": {
-    "src": "/media/reflection-ai-beam-lower-compute-claims/hero.jpg",
+    "src": "/media/reflection-ai-beam-lower-compute-claims/cover-33ce0bdf.jpg",
+    "width": 1600,
+    "height": 900,
+    "alt": "AI-generated illustration for the story: Reflection AI unveils Beam with lower-compute performance claims",
+    "credit": "Illustration generated with AI"
+  },
+  "socialImage": {
+    "src": "/media/reflection-ai-beam-lower-compute-claims/social-17778460.jpg",
     "width": 1200,
     "height": 675,
-    "alt": "Editorial card for the story: Reflection AI unveils Beam with lower-compute performance claims"
+    "alt": "Story card: Reflection AI unveils Beam with lower-compute performance claims"
   },
   "video": {
-    "src": "/media/reflection-ai-beam-lower-compute-claims/video.mp4",
-    "poster": "/media/reflection-ai-beam-lower-compute-claims/poster.jpg",
+    "src": "/media/reflection-ai-beam-lower-compute-claims/video-23888292.mp4",
+    "poster": "/media/reflection-ai-beam-lower-compute-claims/poster-061691fb.jpg",
     "width": 1080,
     "height": 1920,
-    "durationSeconds": 40.93
+    "durationSeconds": 41.11
   },
   "sections": [
     {

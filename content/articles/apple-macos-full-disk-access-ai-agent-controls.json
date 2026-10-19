@@ -6,18 +6,30 @@
   "dek": "Apple wants users to better understand the privacy risks before giving applications access to files, mail, messages and browsing history.",
   "metaDescription": "Apple plans explicit user action for macOS Full Disk Access, citing AI-agent privacy risks. No implementation date has been announced.",
   "category": "Technology",
+  "region": "Global",
+  "story": {
+    "key": "apple-macos-full-disk-access-ai-agent-controls",
+    "label": "Apple macOS Full Disk Access"
+  },
   "entity": "Apple",
   "publishedAt": "2026-10-05T12:12:52Z",
   "updatedAt": "2026-10-05T12:12:52Z",
   "heroImage": {
-    "src": "/media/apple-macos-full-disk-access-ai-agent-controls/hero.jpg",
+    "src": "/media/apple-macos-full-disk-access-ai-agent-controls/cover-a66312b1.jpg",
+    "width": 1600,
+    "height": 900,
+    "alt": "AI-generated illustration for the story: Apple Plans New macOS Full Disk Access Controls for AI-Agent Risks",
+    "credit": "Illustration generated with AI"
+  },
+  "socialImage": {
+    "src": "/media/apple-macos-full-disk-access-ai-agent-controls/social-7c4c8145.jpg",
     "width": 1200,
     "height": 675,
-    "alt": "Editorial card for the story: Apple Plans New macOS Full Disk Access Controls for AI-Agent Risks"
+    "alt": "Story card: Apple Plans New macOS Full Disk Access Controls for AI-Agent Risks"
   },
   "video": {
-    "src": "/media/apple-macos-full-disk-access-ai-agent-controls/video.mp4",
-    "poster": "/media/apple-macos-full-disk-access-ai-agent-controls/poster.jpg",
+    "src": "/media/apple-macos-full-disk-access-ai-agent-controls/video-5615e200.mp4",
+    "poster": "/media/apple-macos-full-disk-access-ai-agent-controls/poster-4c41b32c.jpg",
     "width": 1080,
     "height": 1920,
     "durationSeconds": 42.77
