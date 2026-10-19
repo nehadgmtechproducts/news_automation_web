@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { CATEGORY_NAMES } from "./categories";
+import { REGION_NAMES } from "./regions";
 
 /**
  * The content contract between the news pipeline (producer) and this site (consumer).
@@ -26,6 +27,8 @@ export const imageSchema = z.object({
   alt: z.string().min(1),
   width: z.number().int().positive(),
   height: z.number().int().positive(),
+  /** Shown under the picture when set, e.g. "Illustration generated with AI". */
+  credit: z.string().min(1).optional(),
 });
 
 export const videoSchema = z.object({
@@ -46,11 +49,22 @@ export const articleSchema = z.object({
   metaDescription: z.string().min(1).max(200),
   /** One of the fixed taxonomy (see categories.ts) — never free text. */
   category: z.enum(CATEGORY_NAMES),
+  /**
+   * The ongoing story this article is one UPDATE of. Follow-up reports share a `key`; the website
+   * groups on it to build the "Developing stories" panel and the story timeline. A standalone
+   * article is simply a story with one update.
+   */
+  story: z.object({ key: z.string().min(1), label: z.string().min(1) }),
+  /** The edition it belongs to (see regions.ts): "Global" unless it is about one region. */
+  region: z.enum(REGION_NAMES),
   /** The main company/product/person the story is about. */
   entity: z.string().min(1),
   publishedAt: isoDateTime,
   updatedAt: isoDateTime,
+  /** Text-free cover used in the UI (the headline is drawn by the page, not baked into the image). */
   heroImage: imageSchema,
+  /** Optional titled card for link previews (Open Graph / Twitter). Falls back to heroImage. */
+  socialImage: imageSchema.optional(),
   video: videoSchema.optional(),
   sections: z.array(z.object({ heading: z.string().min(1), body: z.string().min(1) })).min(1),
   keyTakeaways: z.array(z.string().min(1)),
@@ -71,4 +85,15 @@ export type Article = z.infer<typeof articleSchema>;
 /** Number of distinct publishers behind a story (two links to one outlet count once). */
 export function distinctSourceCount(article: Pick<Article, "sources">): number {
   return new Set(article.sources.map((s) => s.domain.toLowerCase())).size;
+}
+
+/**
+ * The article as the site should show it with videos switched off: identical, minus `video`.
+ * Done once, where articles are loaded, so no page, card, sitemap entry or structured-data block
+ * can show a video by accident. The video data stays in the content files for when it returns.
+ */
+export function withoutVideo(article: Article): Article {
+  const copy: Article = { ...article };
+  delete copy.video;
+  return copy;
 }

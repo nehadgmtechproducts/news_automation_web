@@ -1,6 +1,8 @@
 import "server-only";
 import { cache } from "react";
-import type { Article } from "@/core/article";
+import { showVideos } from "@/config/env";
+import { withoutVideo, type Article } from "@/core/article";
+import { searchArticles } from "@/core/search";
 import { CATEGORIES, categoryBySlug } from "@/core/categories";
 import { FileArticleRepository } from "./file-repository";
 import type { ArticleRepository } from "./repository";
@@ -12,9 +14,15 @@ import type { ArticleRepository } from "./repository";
  */
 const repository: ArticleRepository = new FileArticleRepository();
 
-export const getAllArticles = cache(() => repository.list());
+/** Videos are hidden site-wide unless SHOW_VIDEOS=true (see config/env.ts). */
+const visible = (a: Article): Article => (showVideos ? a : withoutVideo(a));
 
-export const getArticle = cache((slug: string) => repository.bySlug(slug));
+export const getAllArticles = cache(async () => (await repository.list()).map(visible));
+
+export const getArticle = cache(async (slug: string) => {
+  const article = await repository.bySlug(slug);
+  return article ? visible(article) : null;
+});
 
 export async function getRelatedArticles(article: Article, limit = 3): Promise<Article[]> {
   const all = await getAllArticles();
@@ -57,4 +65,8 @@ export async function getArticlesByCategorySlug(
   if (!category) return null;
   const articles = (await getAllArticles()).filter((a) => a.category === category.name);
   return { name: category.name, description: category.description, articles };
+}
+
+export async function searchStories(query: string): Promise<Article[]> {
+  return searchArticles(await getAllArticles(), query);
 }

@@ -1,0 +1,117 @@
+/*
+ * DESIGN TOKENS — the single source of truth for the site's look.
+ *
+ * Colors, font families, the type scale, radii and shadows are defined ONLY here.
+ * Components never hard-code a hex value or a pixel size; they use the utilities these
+ * tokens generate (bg-brand, text-ink-muted, text-heading, rounded-card, shadow-card …).
+ * Change a value here and the whole site follows.
+ *
+ * The default Tailwind palette is reset on purpose (`--color-*: initial`), so an ad-hoc
+ * `bg-red-500` simply does not exist: every color on the site has to be a named token.
+ */
+@theme static {
+  /* ---------- colors ---------- */
+  --color-*: initial;
+
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-transparent: transparent;
+  --color-current: currentColor;
+
+  /* brand */
+  --color-brand: #1456f0;
+  --color-brand-strong: #0b3fc4;
+  --color-brand-soft: #e8eefe;
+
+  /* text */
+  --color-ink: #0f172a;
+  --color-ink-muted: #475569;
+  --color-ink-subtle: #64748b;
+  --color-ink-inverse: #ffffff;
+
+  /* surfaces */
+  --color-canvas: #f2f5fa;          /* page background */
+  --color-surface: #ffffff;         /* cards, panels */
+  --color-surface-sunken: #e9eef7;  /* image placeholders, inset areas */
+  --color-navy: #0a1330;            /* hero + video frames */
+  --color-line: #e1e7f0;
+  --color-line-strong: #cbd5e1;
+
+  /* status */
+  --color-success: #15803d;
+  --color-success-soft: #e6f5ec;
+  --color-success-on-dark: #4ade80;   /* the verified tick over dark photos */
+  --color-live: #e11d48;
+
+  /* one color per content category (keep in step with core/categories.ts) */
+  --color-cat-technology: #1456f0;
+  --color-cat-politics: #c2261f;
+  --color-cat-finance: #6d28d9;
+  --color-cat-entertainment: #be185d;
+  --color-cat-launches: #0f766e;
+
+  /* ---------- fonts (the font files themselves are loaded in config/fonts.ts) ---------- */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif: var(--font-newsreader), ui-serif, Georgia, "Times New Roman", serif;
+
+  /* ---------- type scale: ROLES, not pixel sizes ----------
+     Pick the role that matches the content; size, line height and weight come with it.
+       text-hero      featured story headline        text-body-lg  long-form article text
+       text-headline  article page title             text-body     default text
+       text-title     section headings               text-small    secondary text, buttons
+       text-heading   card titles                    text-caption  timestamps, metadata
+       text-subtitle  dek / intro paragraph          text-label    UPPERCASE category tags
+       text-compact   titles on narrow (6-across) cards   text-micro  dense metadata on those cards       */
+  --text-hero: clamp(1.875rem, 1.2rem + 2.6vw, 3.125rem);
+  --text-hero--line-height: 1.1;
+  --text-hero--font-weight: 600;
+
+  --text-headline: clamp(1.75rem, 1.25rem + 2vw, 2.75rem);
+  --text-headline--line-height: 1.12;
+  --text-headline--font-weight: 600;
+
+  --text-title: 1.625rem;
+  --text-title--line-height: 1.2;
+  --text-title--font-weight: 600;
+
+  --text-heading: 1.1875rem;
+  --text-heading--line-height: 1.3;
+  --text-heading--font-weight: 600;
+
+  --text-subtitle: 1.1875rem;
+  --text-subtitle--line-height: 1.5;
+
+  --text-body-lg: 1.125rem;
+  --text-body-lg--line-height: 1.75;
+
+  --text-body: 1rem;
+  --text-body--line-height: 1.6;
+
+  --text-small: 0.875rem;
+  --text-small--line-height: 1.5;
+
+  --text-caption: 0.75rem;
+  --text-caption--line-height: 1.4;
+
+  --text-compact: 0.8125rem;           /* titles on the narrow cards of the Latest news row */
+  --text-compact--line-height: 1.35;
+  --text-compact--font-weight: 600;
+
+  --text-micro: 0.6875rem;             /* dense metadata on narrow cards ("3 sources verified", dates) */
+  --text-micro--line-height: 1.35;
+
+  --text-label: 0.6875rem;
+  --text-label--line-height: 1;
+  --text-label--font-weight: 700;
+  --text-label--letter-spacing: 0.06em;
+
+  /* ---------- shape ---------- */
+  --radius-control: 0.5rem;   /* inputs, buttons */
+  --radius-card: 0.875rem;    /* cards, panels, images */
+
+  --shadow-card: 0 1px 2px rgb(15 23 42 / 0.06), 0 4px 16px rgb(15 23 42 / 0.05);
+  --shadow-lift: 0 2px 4px rgb(15 23 42 / 0.08), 0 12px 32px rgb(15 23 42 / 0.12);
+
+  /* ---------- layout ---------- */
+  --container-page: 90rem;    /* max-w-page: the design is ~1536px wide with ~38px margins */
+}

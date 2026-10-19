@@ -45,3 +45,6 @@ next-env.d.ts
 
 # large generated videos live in object storage/CDN in production, not git
 public/media/**/*.mp4
+
+# anonymous read counts (runtime data, not source)
+.data/

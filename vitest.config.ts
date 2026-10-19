@@ -9,5 +9,6 @@ export default defineConfig({
       "server-only": path.resolve(__dirname, "tests/stubs/server-only.ts"),
     },
   },
-  test: { include: ["tests/**/*.test.ts"] },
+  // .tsx tests render components to static HTML (see tests/footer-render.test.tsx)
+  test: { include: ["tests/**/*.test.{ts,tsx}"] },
 });

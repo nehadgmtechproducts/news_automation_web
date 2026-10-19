@@ -60,3 +60,14 @@ describe("structured data", () => {
     expect(video.duration).toMatch(/^PT/);
   });
 });
+
+describe("imageSchema credit", () => {
+  const image = { src: "/media/x/cover-1.jpg", alt: "alt", width: 1600, height: 900 };
+
+  it("is optional, and when present must not be empty", async () => {
+    const { imageSchema } = await import("@/core/article");
+    expect(imageSchema.safeParse(image).success).toBe(true);
+    expect(imageSchema.safeParse({ ...image, credit: "Illustration generated with AI" }).success).toBe(true);
+    expect(imageSchema.safeParse({ ...image, credit: "" }).success).toBe(false);
+  });
+});

@@ -8,7 +8,8 @@ import { siteConfig } from "@/config/site";
  */
 export function articleMetadata(article: Article): Metadata {
   const path = `/articles/${article.slug}`;
-  const image = { url: article.heroImage.src, width: article.heroImage.width, height: article.heroImage.height, alt: article.heroImage.alt };
+  const share = article.socialImage ?? article.heroImage;
+  const image = { url: share.src, width: share.width, height: share.height, alt: share.alt };
   return {
     title: article.title,
     description: article.metaDescription,

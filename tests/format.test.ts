@@ -17,5 +17,7 @@ describe("format", () => {
   it("slugifies categories", () => {
     expect(slugify("Technology / Privacy")).toBe("technology-privacy");
     expect(slugify("AI & Robots")).toBe("ai-and-robots");
+    expect(slugify("What\u2019s new?")).toBe("whats-new");
+    expect(slugify("What's new?")).toBe("whats-new");
   });
 });

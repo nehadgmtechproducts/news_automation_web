@@ -39,7 +39,7 @@ export function newsArticleJsonLd(article: Article, origin: string): Json {
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
     headline: article.title,
     description: article.metaDescription,
-    image: [abs(origin, article.heroImage.src)],
+    image: [article.socialImage, article.heroImage].filter((i) => !!i).map((i) => abs(origin, i.src)),
     datePublished: article.publishedAt,
     dateModified: article.updatedAt,
     articleSection: article.category,

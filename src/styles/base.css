@@ -1,0 +1,47 @@
+/* Element defaults and long-form typography. Values come from tokens.css. */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem; /* anchored headings stay clear of the sticky header */
+}
+
+body {
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+}
+
+/* Article body text. Kept in CSS so the markup stays semantic (<p>, <ul>, <sup>). */
+.prose-brief p {
+  margin: 0 0 1.1em;
+}
+.prose-brief ul {
+  margin: 0 0 1.1em;
+  padding-left: 1.25em;
+  list-style: disc;
+}
+.prose-brief li {
+  margin-bottom: 0.45em;
+}
+.prose-brief sup a {
+  color: var(--color-brand);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0 1px;
+}
+.prose-brief sup a:hover {
+  text-decoration: underline;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

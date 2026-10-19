@@ -34,3 +34,23 @@ export function toIsoDuration(totalSeconds: number): string {
 export function formatDate(iso: string, locale = "en-US"): string {
   return new Intl.DateTimeFormat(locale, { dateStyle: "medium", timeZone: "UTC" }).format(new Date(iso));
 }
+
+/**
+ * "10 min ago" style label. Pure: pass `nowMs` in, never read the clock here, so the result is
+ * testable and the server and browser can't disagree. Beyond a week it falls back to a date.
+ */
+export function relativeTime(iso: string, nowMs: number): string {
+  const diffMin = Math.floor((nowMs - new Date(iso).getTime()) / 60_000);
+  if (diffMin < 1) return "just now";
+  if (diffMin < 60) return `${diffMin} min ago`;
+  const hours = Math.floor(diffMin / 60);
+  if (hours < 24) return `${hours} ${hours === 1 ? "hour" : "hours"} ago`;
+  const days = Math.floor(hours / 24);
+  if (days < 7) return `${days} ${days === 1 ? "day" : "days"} ago`;
+  return formatDate(iso);
+}
+
+/** "09:12 UTC". UTC on purpose: the server and every visitor's browser then print the same text. */
+export function formatTimeUtc(iso: string): string {
+  return `${new Date(iso).toISOString().slice(11, 16)} UTC`;
+}

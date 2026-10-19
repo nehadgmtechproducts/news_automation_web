@@ -1,42 +1,52 @@
 import Image from "next/image";
 import Link from "next/link";
+import { CategoryTag } from "@/components/ui/CategoryTag";
+import { cn } from "@/lib/cn";
 import type { Article } from "@/core/article";
-import { formatDate, formatDuration, readingMinutes } from "@/core/format";
-import { VerifiedBadge } from "./VerifiedBadge";
+import { formatDuration } from "@/core/format";
+import { ArticleMeta } from "./ArticleMeta";
 
-type Props = { article: Article; priority?: boolean; featured?: boolean };
-
-export function ArticleCard({ article, priority = false, featured = false }: Props) {
-  const href = `/articles/${article.slug}`;
+/**
+ * Grid card. The title link is "stretched" over the whole card (after:absolute), so the card is
+ * one big click target but still a single, properly labelled link for screen readers.
+ */
+export function ArticleCard({
+  article,
+  priority = false,
+  compact = false,
+  as: Heading = "h3",
+}: {
+  article: Article;
+  priority?: boolean;
+  /** The narrow card of the 5-across Latest news row: same 16:9 thumbnail as the Watch cards, small sans title, stacked meta. */
+  compact?: boolean;
+  as?: "h2" | "h3";
+}) {
   return (
-    <article className={featured ? "grid gap-6 md:grid-cols-2 md:items-center" : "flex flex-col gap-3"}>
-      <Link href={href} className="relative block overflow-hidden rounded-lg bg-line" tabIndex={-1} aria-hidden>
+    <article className="group relative flex flex-col overflow-hidden rounded-card bg-surface shadow-card transition-shadow hover:shadow-lift">
+      <div className="relative aspect-video bg-surface-sunken">
         <Image
           src={article.heroImage.src}
           alt=""
-          width={article.heroImage.width}
-          height={article.heroImage.height}
-          sizes={featured ? "(min-width: 768px) 50vw, 100vw" : "(min-width: 768px) 33vw, 100vw"}
+          fill
+          sizes={compact ? "(min-width: 1280px) 14vw, (min-width: 768px) 28vw, 45vw" : "(min-width: 1280px) 22vw, (min-width: 640px) 45vw, 100vw"}
           priority={priority}
-          className="aspect-video w-full object-cover"
+          className="object-cover"
         />
         {article.video && (
-          <span className="absolute bottom-2 right-2 rounded bg-black/75 px-2 py-0.5 text-xs font-semibold text-white">
+          <span className={cn("absolute rounded-control bg-navy/80 font-semibold text-ink-inverse", compact ? "bottom-1.5 right-1.5 px-1.5 py-0.5 text-label" : "bottom-2 right-2 px-2 py-0.5 text-caption")}>
             ▶ {formatDuration(article.video.durationSeconds)}
           </span>
         )}
-      </Link>
-      <div className="flex flex-col gap-2">
-        <p className="text-xs font-semibold uppercase tracking-wide text-accent">{article.category}</p>
-        <h2 className={`font-serif font-semibold leading-tight ${featured ? "text-3xl md:text-4xl" : "text-xl"}`}>
-          <Link href={href} className="hover:underline">{article.title}</Link>
-        </h2>
-        <p className="text-muted">{article.dek}</p>
-        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted">
-          <VerifiedBadge article={article} />
-          <time dateTime={article.publishedAt}>{formatDate(article.publishedAt)}</time>
-          <span>{readingMinutes(article)} min read</span>
-        </div>
+      </div>
+      <div className={cn("flex flex-1 flex-col", compact ? "gap-1.5 p-2.5" : "gap-2 p-4")}>
+        <CategoryTag category={article.category} />
+        <Heading className={cn("text-ink", compact ? "line-clamp-4 text-compact" : "font-serif text-heading")}>
+          <Link href={`/articles/${article.slug}`} className="after:absolute after:inset-0 group-hover:text-brand">
+            {article.title}
+          </Link>
+        </Heading>
+        <ArticleMeta article={article} stacked={compact} className="mt-auto pt-1" />
       </div>
     </article>
   );

@@ -1,27 +1,29 @@
 import Link from "next/link";
-import { siteConfig } from "@/config/site";
+import { showVideos } from "@/config/env";
+import { navItems, siteConfig } from "@/config/site";
 import { MobileNav } from "@/components/client/MobileNav";
+import { NavLinks } from "@/components/client/NavLinks";
+import { SearchForm } from "@/components/search/SearchForm";
+import { Container } from "@/components/ui/Container";
 
 export function Header() {
+  const items = navItems({ videos: showVideos });
   return (
-    <header className="relative border-b border-line bg-surface">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
-        <Link href="/" className="font-serif text-2xl font-semibold tracking-tight">
+    <header className="sticky top-0 z-40 border-b border-line bg-surface/95 backdrop-blur">
+      <Container className="relative flex items-center gap-4 py-3">
+        <Link href="/" className="font-serif text-title text-ink">
           {siteConfig.name}
         </Link>
-        <nav aria-label="Primary" className="hidden md:block">
-          <ul className="flex gap-6 text-sm font-medium">
-            {siteConfig.nav.map((item) => (
-              <li key={item.href}>
-                <Link href={item.href} className="text-muted hover:text-foreground">
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+        <nav aria-label="Primary" className="ml-2 hidden lg:block">
+          <NavLinks items={items} />
         </nav>
-        <MobileNav items={siteConfig.nav} />
-      </div>
+        <div className="ml-auto hidden w-full max-w-xs md:block">
+          <SearchForm id="header-search" />
+        </div>
+        <div className="ml-auto md:ml-0">
+          <MobileNav items={items} />
+        </div>
+      </Container>
     </header>
   );
 }
