@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "id": "topic-18",
+  "slug": "magnitude-7-0-earthquake-tibet-kills-16-destroys-homes",
+  "title": "Magnitude 7.0 Earthquake in Tibet Kills at Least 16, Destroys Hundreds of Homes",
+  "dek": "The quake hit a high-altitude, sparsely populated area of northern Tibet, prompting an all-out rescue response from Chinese authorities.",
+  "metaDescription": "A magnitude 7.0 earthquake struck Tibet's Nagqu region Thursday night, killing at least 16 people and collapsing 339 homes. Rescue operations are underway.",
+  "category": "Politics",
+  "region": "Asia",
+  "story": {
+    "key": "magnitude-7-0-earthquake-tibet-kills-16-destroys-homes",
+    "label": "Tibet Nagqu earthquake"
+  },
+  "entity": "Tibet",
+  "publishedAt": "2026-10-23T06:21:09Z",
+  "updatedAt": "2026-10-23T06:21:09Z",
+  "heroImage": {
+    "src": "/media/magnitude-7-0-earthquake-tibet-kills-16-destroys-homes/cover-d749a653.jpg",
+    "width": 1600,
+    "height": 900,
+    "alt": "AI-generated illustration for the story: Magnitude 7.0 Earthquake in Tibet Kills at Least 16, Destroys Hundreds of Homes",
+    "credit": "Illustration generated with AI"
+  },
+  "socialImage": {
+    "src": "/media/magnitude-7-0-earthquake-tibet-kills-16-destroys-homes/social-3e414b23.jpg",
+    "width": 1200,
+    "height": 675,
+    "alt": "Story card: Magnitude 7.0 Earthquake in Tibet Kills at Least 16, Destroys Hundreds of Homes"
+  },
+  "sections": [
+    {
+      "heading": "Quake Strikes Northern Tibet",
+      "body": "A magnitude 7.0 earthquake struck Tibet's Nagqu region on Thursday night, killing at least 16 people and collapsing 339 homes, according to reports from the BBC and The Guardian [1][2]. The United States Geological Survey recorded the quake at 10:33 p.m. local time, with its epicenter in a high-altitude, sparsely populated area of northern Tibet [1][2]. The BBC placed the epicenter in Baqên County, while The Guardian cited a location 191 km east-northeast of Nagqu [1][2]. Both outlets reported the affected area sits at roughly 4,800 metres altitude [1]."
+    },
+    {
+      "heading": "Casualties and Damage",
+      "body": "At least 16 people were confirmed dead, with dozens injured [1][2]. The BBC reported 65 injured, including 11 with severe injuries, while The Guardian put the figure at 54 [1][2]. Rockfalls forced road closures, including a section of National Highway 317, which was restricted to emergency vehicles [2]. The BBC reported more than 12,400 people had been relocated, while The Guardian said over 1,600 personnel were deployed for rescue efforts, including more than 300 police officers and nearly 350 firefighters [1][2]. Supplies including 1,000 prefabricated housing units and about 3,000 tents arrived in the region, according to The Guardian [2]."
+    },
+    {
+      "heading": "Aftershocks and Rescue Response",
+      "body": "The USGS recorded at least seven aftershocks ranging from magnitude 4.3 to 5.2, with the largest at 5.2 magnitude and 10 km depth [1][2]. The BBC reported more than 400 aftershocks had been registered by Friday morning, citing state media [1]. Chinese leadership called for all-out rescue efforts, though the BBC attributed the directive to Premier Li Qiang and The Guardian to President Xi Jinping [1][2]. The Ministry of Emergency Management dispatched a working group, and the government allocated 50 million yuan (£5.6m, $7.5m) for disaster relief, according to the BBC [1]. Power was restored in some areas by Friday morning [1]."
+    },
+    {
+      "heading": "Seismic History in the Region",
+      "body": "The Guardian reported this was the biggest quake in the region in five years, citing state broadcaster CCTV [2]. In January 2025, an earthquake in Tibet's Tingri county killed at least 126 people, per The Guardian, while the BBC noted a quake in the Shigatse region that month [1][2]. A December 2023 quake in Gansu province killed at least 134 people, according to The Guardian, with the BBC reporting more than 120 deaths [1][2]. The 2008 Sichuan earthquake left approximately 90,000 dead or missing [2]. Less than two months ago, a glacier collapse triggered floods and landslides in Tibet and Nepal, killing at least 1,400 people, the BBC reported [1]."
+    }
+  ],
+  "keyTakeaways": [
+    "A magnitude 7.0 earthquake hit Tibet's Nagqu region Thursday night, killing at least 16 people.",
+    "339 homes collapsed and rockfalls closed roads in the high-altitude, sparsely populated area.",
+    "Rescue operations involving over 1,600 personnel are underway, with supplies including 1,000 prefabricated housing units arriving.",
+    "The USGS recorded at least seven aftershocks up to magnitude 5.2; the BBC reported over 400 total aftershocks by Friday morning.",
+    "Chinese leadership called for all-out rescue efforts and allocated 50 million yuan for disaster relief."
+  ],
+  "whyItMatters": "The quake underscores the persistent seismic risk across the Tibetan Plateau, where high altitude and remote terrain complicate rescue logistics. With multiple deadly quakes in the region since 2023, the disaster tests China's emergency response capacity in one of its most geographically challenging areas.",
+  "sources": [
+    {
+      "index": 1,
+      "title": "Powerful earthquake in Tibet's Nagqu area leaves 16 dead",
+      "domain": "bbc.co.uk",
+      "url": "https://bbc.co.uk/news/articles/ck5ynd1z6e83o",
+      "publishedAt": "2026-10-22"
+    },
+    {
+      "index": 2,
+      "title": "Magnitude-7 earthquake hits China’s Tibet, killing at least 16 and destroying hundreds of homes",
+      "domain": "theguardian.com",
+      "url": "https://theguardian.com/world/2026/oct/23/magnitude-7-earthquake-hits-china-tibet",
+      "publishedAt": "2026-10-23"
+    }
+  ],
+  "keywords": [
+    "Tibet earthquake",
+    "Nagqu earthquake",
+    "magnitude 7.0",
+    "rescue operations",
+    "aftershocks"
+  ],
+  "hashtags": [
+    "#TibetEarthquake",
+    "#Nagqu",
+    "#DisasterResponse",
+    "#Earthquake",
+    "#China"
+  ]
+}

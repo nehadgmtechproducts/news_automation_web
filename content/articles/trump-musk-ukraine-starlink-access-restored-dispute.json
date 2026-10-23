@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "id": "topic-13",
+  "slug": "trump-musk-ukraine-starlink-access-restored-dispute",
+  "title": "Trump Says Musk Restored Ukraine Starlink Access; Zelenskyy and European Official Dispute Claim",
+  "dek": "Conflicting accounts emerge over whether Ukraine's critical satellite communications have been fully restored after reported speed caps hampered military operations.",
+  "metaDescription": "Donald Trump says Elon Musk restored Ukraine's Starlink access, but Zelenskyy and a senior European official say military-grade Starshield service remains…",
+  "category": "Politics",
+  "region": "Global",
+  "story": {
+    "key": "trump-musk-ukraine-starlink-access-restored-dispute",
+    "label": "Ukraine Starlink access dispute"
+  },
+  "entity": "Elon Musk",
+  "publishedAt": "2026-10-23T05:57:21Z",
+  "updatedAt": "2026-10-23T05:57:21Z",
+  "heroImage": {
+    "src": "/media/trump-musk-ukraine-starlink-access-restored-dispute/cover-02075c14.jpg",
+    "width": 1600,
+    "height": 900,
+    "alt": "AI-generated illustration for the story: Trump Says Musk Restored Ukraine Starlink Access; Zelenskyy and European Official Dispute Claim",
+    "credit": "Illustration generated with AI"
+  },
+  "socialImage": {
+    "src": "/media/trump-musk-ukraine-starlink-access-restored-dispute/social-444a3974.jpg",
+    "width": 1200,
+    "height": 675,
+    "alt": "Story card: Trump Says Musk Restored Ukraine Starlink Access; Zelenskyy and European Official Dispute Claim"
+  },
+  "sections": [
+    {
+      "heading": "Trump Announces Restoration, Cites Wall Street Journal Report",
+      "body": "Donald Trump told reporters on Thursday that Elon Musk had restored Ukraine's access to Starlink satellite internet services after restrictions that hampered military operations, including drone use and air defence [1][2][3]. The statement followed a Wall Street Journal report that Trump called Musk and asked him to lift restrictions on Ukraine's use of Starlink [1][2][3]. Trump declined to confirm or deny whether he made the call to Musk [1][2][3]. According to the Journal's reporting, Trump told Musk he was frustrated that Starlink speeds were still capped at around 160 km/h, a level that made Ukraine's drones and interceptors powerless [2]. The Wall Street Journal also reported that Starlink services returned to normal following Trump's call to Musk [1], though the BBC said it had not confirmed the Journal's report [2]."
+    },
+    {
+      "heading": "Zelenskyy and European Official Say Service Not Fully Restored",
+      "body": "Ukrainian President Volodymyr Zelenskyy said on Thursday that the military-grade Starshield service had not been fully restored [2][3]. Zelenskyy stated that Starlink speed had not been restored to the target of 400 km/h (250 mph) and that he was waiting for information from US Secretary of State Marco Rubio [2]. A senior European official told the Associated Press that nothing had changed in the operation of the Starshield service [3]. The Guardian cited this official as saying the situation remained unchanged despite Trump's announcement [3]. The conflicting accounts create uncertainty over whether Ukraine's critical satellite communications have returned to full operational capacity."
+    },
+    {
+      "heading": "Conflicting Statements on Authority Over Starlink Restrictions",
+      "body": "Elon Musk stated on October 14 that Starshield is owned and controlled by the US government and that any limits on speed or usage are decided by the US military and ultimately the President [1][2]. Marco Rubio said decisions about Starlink's speed and access belong to Musk and SpaceX, not the White House [1][2]. Trump denied ordering restrictions on Ukraine's Starlink access and said on Friday he did not think Musk was responsible either [1][2]. The White House repeatedly said it did not order access to be restricted [2][3]. These divergent statements from key figures highlight confusion over who controls the military-grade satellite network that Ukraine relies on for drone operations and air defence."
+    },
+    {
+      "heading": "Background: Restrictions Began in Mid-October Amid Broader Tensions",
+      "body": "Ukrainian officials announced on October 13 that sudden restrictions on Starlink services left the military scrambling [1][2][3]. The next day, Musk posted on social media that Starshield is owned and controlled by the US government and any limits are decided by the US military and ultimately the President [1][2][3]. Ukraine also first reported an interruption to US intelligence sharing on October 14 [2]. The Starlink network operates with approximately 10,000 satellites in low Earth orbit [2]. The restrictions came as the war reached day 1,703 [3], and amid other developments including Russian ballistic missile strikes on 12 regions of Ukraine overnight that killed at least four people and wounded five children [3], and drone attacks on at least seven cargo ships near the coasts of Romania and Bulgaria in the past two weeks with 30 sailors reported dead or missing [3]."
+    }
+  ],
+  "keyTakeaways": [
+    "Trump says Musk restored Ukraine's Starlink access after restrictions hampered military operations.",
+    "Zelenskyy says military-grade Starshield service has not been fully restored to 400 km/h target.",
+    "A senior European official says nothing has changed in Starshield operations.",
+    "Conflicting statements from Musk, Rubio, and Trump over who controls Starlink access decisions.",
+    "Restrictions began October 13; Wall Street Journal reported Trump called Musk to lift them."
+  ],
+  "whyItMatters": "Ukraine's military relies on Starlink and Starshield for drone operations and air defence. The conflicting accounts over whether full service has been restored create operational uncertainty at a time when Russian missile and drone attacks continue. The dispute also reveals unclear lines of authority between the US government, SpaceX, and the White House over a critical wartime communications system.",
+  "sources": [
+    {
+      "index": 1,
+      "title": "Trump says Musk restored Ukraine’s Starlink access amid Russia war",
+      "domain": "aljazeera.com",
+      "url": "https://aljazeera.com/news/2026/10/23/trump-says-musk-restored-ukraines-starlink-access-amid-russia-war?traffic_source=rss",
+      "publishedAt": "2026-10-23"
+    },
+    {
+      "index": 2,
+      "title": "Trump says Musk has restored access to Ukraine's Starlink network",
+      "domain": "bbc.co.uk",
+      "url": "https://bbc.co.uk/news/articles/cq74pjpmx0e8o",
+      "publishedAt": "2026-10-22"
+    },
+    {
+      "index": 3,
+      "title": "Ukraine war briefing: Uncertainty over Kyiv’s Starlink access after Trump claims Musk restored service",
+      "domain": "theguardian.com",
+      "url": "https://www.theguardian.com/world/2026/oct/23/ukraine-war-briefing-uncertainty-over-kyivs-starlink-access-after-trump-claims-musk-restored-service",
+      "publishedAt": "2026-10-23"
+    }
+  ],
+  "keywords": [
+    "Starlink Ukraine",
+    "Trump Musk Ukraine",
+    "Starshield military",
+    "satellite internet war",
+    "Zelenskyy Starlink"
+  ],
+  "hashtags": [
+    "#Starlink",
+    "#Ukraine",
+    "#Trump",
+    "#Musk",
+    "#Zelenskyy"
+  ]
+}

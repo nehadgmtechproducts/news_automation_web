@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "id": "topic-14",
+  "slug": "trump-bbc-defamation-lawsuit-deposition-ordered-december-11",
+  "title": "Judge Orders Trump to Sit for Deposition by Dec. 11 in $10 Billion BBC Defamation Lawsuit",
+  "dek": "U.S. Magistrate Judge Enjoliqué Lett set a Dec. 11 deadline and warned that failure to comply with discovery could result in dismissal of Trump's $10 billion lawsuit against the BBC.",
+  "metaDescription": "A U.S. magistrate judge ordered President Donald Trump to complete a deposition by Dec.",
+  "category": "Politics",
+  "region": "Americas",
+  "story": {
+    "key": "trump-bbc-defamation-lawsuit-deposition-ordered-december-11",
+    "label": "Trump BBC defamation lawsuit"
+  },
+  "entity": "BBC",
+  "publishedAt": "2026-10-23T05:59:27Z",
+  "updatedAt": "2026-10-23T05:59:27Z",
+  "heroImage": {
+    "src": "/media/trump-bbc-defamation-lawsuit-deposition-ordered-december-11/cover-2c02934e.jpg",
+    "width": 1600,
+    "height": 900,
+    "alt": "AI-generated illustration for the story: Judge Orders Trump to Sit for Deposition by Dec. 11 in $10 Billion BBC Defamation Lawsuit",
+    "credit": "Illustration generated with AI"
+  },
+  "socialImage": {
+    "src": "/media/trump-bbc-defamation-lawsuit-deposition-ordered-december-11/social-214963dd.jpg",
+    "width": 1200,
+    "height": 675,
+    "alt": "Story card: Judge Orders Trump to Sit for Deposition by Dec. 11 in $10 Billion BBC Defamation Lawsuit"
+  },
+  "sections": [
+    {
+      "heading": "Judge Sets Deposition Deadline and Warns of Sanctions",
+      "body": "U.S. Magistrate Judge Enjoliqué Lett ordered President Donald Trump to sit for a deposition in his $10 billion defamation lawsuit against the BBC no later than December 11, 2026 [1][2][3]. The judge warned that failure to comply with discovery obligations could result in sanctions, including dismissal of the lawsuit [1][2][3]. Judge Lett also rejected Trump's request to prevent the deposition from being videotaped [2][3] and allowed the BBC's subpoena to Mar-a-Lago to proceed [2][3]. The deposition is expected to last seven hours, according to court filings cited by The Guardian [2]. Trump's legal team was given 30 days to produce relevant documents [2]."
+    },
+    {
+      "heading": "Background: The Documentary and the Lawsuit",
+      "body": "The lawsuit stems from a BBC Panorama documentary titled \"Trump: A Second Chance\" that aired one week before the 2024 presidential election [1][2][3]. The documentary misleadingly spliced together two comments Trump made nearly an hour apart during his January 6, 2021 rally on the Ellipse outside the White House [1][2][3]. The BBC acknowledged the misleading edit and apologized for it but denied Trump's defamation claims [1][2][3]. According to the timeline, the BBC issued a statement apologizing for the edit on November 13, 2025 [1][2][3]. Trump filed the $10 billion defamation lawsuit on December 15, 2025, according to CNBC [3]. The complaint alleged the documentary was a \"false, defamatory, deceptive, disparaging, inflammatory, and malicious depiction\" and was produced as part of a \"brazen attempt\" to interfere with and influence the 2024 election outcome [3]. CNBC also reported that the BBC promised not to air the documentary again or show it on any of its platforms, and that the BBC chair apologized for the edit shortly before the suit was filed [3]."
+    },
+    {
+      "heading": "Cancelled October Deposition and Competing Accounts",
+      "body": "Trump previously cancelled a deposition scheduled for October 16, 2026, citing a \"matter of national importance\" [1][2][3]. BBC attorney Charles Tobin stated that Trump was campaigning in Georgia on October 16, the day of the cancelled deposition [1][2][3]. The Guardian reported that Trump's attorneys said he would be willing to sit for a deposition during the second or third week of January [2]. Trump's attorney Alejandro Brito contended that the president does not run Mar-a-Lago and his occupation is President of the United States [2]. BBC attorney Charles Tobin said Trump hosts foreign leaders like Volodymyr Zelenskyy, the president of Ireland, and Vladimir Putin at Mar-a-Lago, though the claim about hosting Putin appears only in The Guardian and is unverified [2]."
+    },
+    {
+      "heading": "Disputed Claims and Related Litigation",
+      "body": "Several claims appear in only one source and remain unverified by the others. The Guardian reported that Trump claimed the BBC used AI to insert words into his speech in the documentary [2]. The same outlet reported that Trump's team argued he was personally damaged under Florida's Unfair and Deceptive Trade Practices Act because the broadcast was not readily available in Florida [2]. Al Jazeera reported that Trump is currently enmeshed in another $10 billion defamation lawsuit against The Wall Street Journal that he refiled in May after it was previously dismissed, and that another defamation case seeks $15 billion in damages from The New York Times and Penguin Random House [1]. Al Jazeera also reported that federal charges of attempting to overturn the 2020 election were dropped upon Trump's re-election in 2024, a state-level case in Georgia was dismissed in November 2025 after a replacement prosecutor took over following the disqualification of Fani Willis, and a congressional probe concluded that the president had been reluctant to call on his supporters to stand down after they stormed the Capitol [1]. These additional claims appear only in Al Jazeera's coverage."
+    }
+  ],
+  "keyTakeaways": [
+    "A U.S. magistrate judge ordered President Trump to complete a deposition by Dec. 11, 2026, in his $10 billion defamation suit against the BBC.",
+    "The judge warned that non-compliance with discovery could lead to sanctions including dismissal of the case.",
+    "The lawsuit centers on a BBC Panorama documentary that misleadingly edited two Trump comments from his Jan. 6, 2021 rally.",
+    "Trump cancelled an Oct. 16 deposition; the BBC says he was campaigning in Georgia that day.",
+    "Multiple related defamation suits and legal matters involving Trump are reported by only one outlet each."
+  ],
+  "whyItMatters": "The order sets a firm deadline for the president's testimony in a high-stakes defamation case against a major international broadcaster. The judge's warning of dismissal for non-compliance raises the stakes for Trump's legal team. The case also tests how courts handle claims of deceptive editing in political documentaries aired during election periods.",
+  "sources": [
+    {
+      "index": 1,
+      "title": "Trump ordered to sit for deposition in BBC defamation lawsuit",
+      "domain": "aljazeera.com",
+      "url": "https://aljazeera.com/news/2026/10/22/trump-ordered-to-sit-for-deposition-in-bbc-defamation-lawsuit?traffic_source=rss",
+      "publishedAt": "2026-10-22"
+    },
+    {
+      "index": 2,
+      "title": "US judge orders Trump to sit for deposition in $10bn lawsuit against BBC",
+      "domain": "theguardian.com",
+      "url": "https://theguardian.com/us-news/2026/oct/22/trump-bbc-lawsuit-deposition-discovery",
+      "publishedAt": "2026-10-22"
+    },
+    {
+      "index": 3,
+      "title": "Judge orders Trump to sit for deposition in BBC defamation lawsuit by Dec. 11: Reports",
+      "domain": "cnbc.com",
+      "url": "https://cnbc.com/2026/10/22/trump-deposition-bbc-defamation-lawsuit.html",
+      "publishedAt": "2026-10-22"
+    }
+  ],
+  "keywords": [
+    "Trump BBC lawsuit",
+    "defamation deposition",
+    "Magistrate Judge Enjoliqué Lett",
+    "Panorama documentary",
+    "December 11 deadline"
+  ],
+  "hashtags": [
+    "#Trump",
+    "#BBC",
+    "#DefamationLawsuit",
+    "#LegalNews",
+    "#Deposition"
+  ]
+}

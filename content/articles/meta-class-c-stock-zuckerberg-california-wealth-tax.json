@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "id": "topic-15",
+  "slug": "meta-class-c-stock-zuckerberg-california-wealth-tax",
+  "title": "Meta Creates Nonvoting Stock Class to Help Zuckerberg Pay California Wealth Tax",
+  "dek": "Meta's board approved a new class of nonvoting Class C shares to help CEO Mark Zuckerberg cover a potential California wealth tax liability while preserving his majority voting control and securing his residency in the state for eight years.",
+  "metaDescription": "Meta approved a new Class C nonvoting stock to let Mark Zuckerberg pay a potential California billionaire tax under Proposition 40 without losing voting…",
+  "category": "Finance",
+  "region": "Americas",
+  "story": {
+    "key": "meta-class-c-stock-zuckerberg-california-wealth-tax",
+    "label": "Meta Class C stock Proposition 40"
+  },
+  "entity": "California",
+  "publishedAt": "2026-10-23T06:03:26Z",
+  "updatedAt": "2026-10-23T06:03:26Z",
+  "heroImage": {
+    "src": "/media/meta-class-c-stock-zuckerberg-california-wealth-tax/cover-df6b3bcc.jpg",
+    "width": 1600,
+    "height": 900,
+    "alt": "AI-generated illustration for the story: Meta Creates Nonvoting Stock Class to Help Zuckerberg Pay California Wealth Tax",
+    "credit": "Illustration generated with AI"
+  },
+  "socialImage": {
+    "src": "/media/meta-class-c-stock-zuckerberg-california-wealth-tax/social-4d0c2f3f.jpg",
+    "width": 1200,
+    "height": 675,
+    "alt": "Story card: Meta Creates Nonvoting Stock Class to Help Zuckerberg Pay California Wealth Tax"
+  },
+  "sections": [
+    {
+      "heading": "New Class C Stock Structure Approved",
+      "body": "Meta's board of directors approved the creation of a new class of nonvoting Class C common stock effective January 2027, according to an SEC filing disclosed on October 22, 2026 [1][2][3]. The Class C shares will be distributed as a one-for-one stock dividend to existing Class A and Class B shareholders [1][2]. This structure allows CEO Mark Zuckerberg to sell or transfer up to 20% of his Class C shares from the dividend, representing approximately 10% of his total economic stake in Meta, to pay any potential tax liability under California's Proposition 40 without affecting his majority voting control [1][2]. Zuckerberg currently holds roughly 60% of Meta's voting power through his Class B shares [1]. The arrangement, which Meta refers to as a \"Founder Alignment Agreement,\" was disclosed alongside the company's Q3 earnings report [2][3]."
+    },
+    {
+      "heading": "Proposition 40 and Potential Tax Liability",
+      "body": "Proposition 40, a ballot measure appearing before California voters on November 3, 2026, would impose a one-time 5% wealth tax on California residents with net worth exceeding $1 billion [1][2][3]. Estimates of Zuckerberg's potential tax liability vary across sources. TechCrunch reports it could reach as much as $11 billion [1], while the BBC cites an estimate of around $10 billion in additional state taxes [3]. CNBC places Zuckerberg's current net worth at about $225 billion [2], and the BBC reports his wealth exceeds $200 billion [3]. The measure is projected to generate as much as $100 billion over five years, according to TechCrunch [1]. California is home to 225 billionaires, according to Americans for Tax Fairness as cited by the BBC [3]. A Citrin-Politico poll cited by CNBC showed 46% of voters in favor of Proposition 40 and 43% opposed [2]."
+    },
+    {
+      "heading": "Residency Commitment and Strategic Rationale",
+      "body": "Under the agreement, Zuckerberg committed to remaining a California resident for eight years, barring material unforeseen circumstances [2][3]. Meta's filing cites the importance of keeping Zuckerberg in California for coordination with Meta Superintelligence Labs, which is led by Alexandr Wang [1][2]. The company plans to spend as much as $145 billion on AI projects in 2026, according to the BBC [3]. The board discussions about Proposition 40 began in July 2026 and continued through August, according to the timeline in the fact sheet. The New York Times, as cited by TechCrunch, reported that Zuckerberg pressed the board in September to create a tax protection plan and threatened to list his Palo Alto property for sale if they did not agree [1]. This claim appears only in the New York Times reporting and is not confirmed by Meta's filing or other sources [1]."
+    },
+    {
+      "heading": "Disputed Claims and Market Reaction",
+      "body": "Several claims surrounding the announcement remain disputed or single-sourced. The BBC reported that Meta's shares fell more than 7% on Thursday following the announcement, wiping more than $100 billion off the company's market capitalization [3], though TechCrunch and CNBC did not mention market impact [1][2]. The BBC also reported that Meta posted negative cash flow for the first time since going public 14 years ago [3], a detail not found in the other sources. CNBC reported that Google co-founders Larry Page and Sergey Brin moved out of California and bought luxury homes in Florida [2], while the BBC noted Brin has campaigned against Proposition 40 [3]. CNBC also cited a quote from Brin telling the New York Times in April that he fled the Soviet Union in 1979 and does not want California to end up in the same place [2], and reported that Nvidia CEO Jensen Huang told CBS Sunday Morning it would be a \"privilege\" to pay the tax [2]. The BBC attributed a claim that Zuckerberg's estimated effective tax rate in California was less than 1% each year to an external source [3]. These claims appear in only one source each and have not been independently confirmed."
+    }
+  ],
+  "keyTakeaways": [
+    "Meta created a new nonvoting Class C stock class to help Zuckerberg pay a potential California wealth tax without losing voting control.",
+    "Zuckerberg can sell up to 20% of his Class C dividend shares (10% of his economic stake) for tax payments.",
+    "Zuckerberg committed to remain a California resident for eight years under the Founder Alignment Agreement.",
+    "Proposition 40 would impose a one-time 5% tax on California residents worth over $1 billion; the election is November 3, 2026.",
+    "Several claims about market reaction, Zuckerberg's net worth, and other billionaires' moves are single-sourced and unconfirmed."
+  ],
+  "whyItMatters": "The arrangement illustrates how ultra-wealthy founders can use corporate governance structures to manage personal tax exposure while maintaining control of their companies. It also highlights the growing tension between state-level wealth tax proposals and the mobility of high-net-worth individuals, with potential implications for California's tax base and tech industry leadership.",
+  "sources": [
+    {
+      "index": 1,
+      "title": "Mark Zuckerberg's creative plan to pay California’s proposed billionaire tax without losing control of Meta | TechCrunch",
+      "domain": "techcrunch.com",
+      "url": "https://techcrunch.com/2026/10/22/mark-zuckerbergs-creative-plan-to-pay-californias-proposed-billionaire-tax-without-losing-control-of-meta",
+      "publishedAt": "2026-10-22"
+    },
+    {
+      "index": 2,
+      "title": "Meta’s deal to keep Zuckerberg in California adds fuel to wealth tax debate ahead of election",
+      "domain": "cnbc.com",
+      "url": "https://cnbc.com/2026/10/22/meta-mark-zuckerberg-california-billionaire-tax.html",
+      "publishedAt": "2026-10-22"
+    },
+    {
+      "index": 3,
+      "title": "Zuckerberg wins Meta deal to help him foot bill for possible California billionaire tax",
+      "domain": "bbc.co.uk",
+      "url": "https://bbc.co.uk/news/articles/cky83vwnyglno",
+      "publishedAt": "2026-10-22"
+    }
+  ],
+  "keywords": [
+    "Meta",
+    "Mark Zuckerberg",
+    "Proposition 40",
+    "California wealth tax",
+    "Class C stock",
+    "Founder Alignment Agreement"
+  ],
+  "hashtags": [
+    "#Meta",
+    "#MarkZuckerberg",
+    "#CaliforniaTax",
+    "#Proposition40",
+    "#TechPolicy"
+  ]
+}
