@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "id": "topic-19",
+  "slug": "first-human-case-shamonda-virus-france-patient-dies",
+  "title": "First Human Case of Shamonda Virus Detected in France as Patient Dies",
+  "dek": "A severely immunocompromised patient in France has died after contracting the first known human case of Shamonda virus, a midge-borne pathogen previously found only in livestock.",
+  "metaDescription": "French authorities confirm first known human infection of Shamonda virus in an immunocompromised patient who died in early October 2026. Investigations ongoing.",
+  "category": "Healthcare",
+  "region": "Europe",
+  "story": {
+    "key": "first-human-case-shamonda-virus-france-patient-dies",
+    "label": "Shamonda virus human case"
+  },
+  "entity": "France",
+  "publishedAt": "2026-10-23T06:58:43Z",
+  "updatedAt": "2026-10-23T06:58:43Z",
+  "heroImage": {
+    "src": "/media/first-human-case-shamonda-virus-france-patient-dies/cover-afc77138.jpg",
+    "width": 1600,
+    "height": 900,
+    "alt": "AI-generated illustration for the story: First Human Case of Shamonda Virus Detected in France as Patient Dies",
+    "credit": "Illustration generated with AI"
+  },
+  "socialImage": {
+    "src": "/media/first-human-case-shamonda-virus-france-patient-dies/social-4219e227.jpg",
+    "width": 1200,
+    "height": 675,
+    "alt": "Story card: First Human Case of Shamonda Virus Detected in France as Patient Dies"
+  },
+  "sections": [
+    {
+      "heading": "First Human Infection Confirmed",
+      "body": "French health authorities have confirmed the first known human case of Shamonda virus, detected in a severely immunocompromised patient who died in early October 2026 [1][2][3]. The patient, described as an unidentified male being treated for a serious underlying illness, experienced neurological complications that health officials believe were very likely linked to the viral infection [2][3]. French authorities announced the finding on October 22, 2026, stating that investigations are ongoing into how the patient acquired the infection and whether the virus contributed directly to the death [1][2][3]. The World Health Organization (WHO) and the European Centre for Disease Prevention and Control (ECDC) are monitoring the situation [1][2][3]."
+    },
+    {
+      "heading": "Virus Background and European Spread",
+      "body": "Shamonda virus is a bunyavirus transmitted through bites from infected Culicoides midges [1][2][3]. The virus primarily affects livestock, including cattle, sheep, goats, horses, and alpacas [1][2][3]. The first detection of Shamonda virus in European livestock occurred in summer 2026, with the ECDC noting late July as the timeframe [1][2]. Earlier in spring 2026, the virus had been identified in animals in eastern France [1][2][3]. The patient is believed to have contracted the virus through a midge bite in eastern France [2][3]. French authorities state that no health risk to the general public has been identified so far, and there is no evidence of sustained human-to-human transmission [1][2][3]."
+    },
+    {
+      "heading": "Investigations and Expert Assessments",
+      "body": "Investigations continue into the precise source of the patient's infection and the virus's role in the fatal outcome [1][2][3]. Several expert assessments have been offered, though they appear in only single sources. The Guardian reports that Professor Tom Solomon assessed the risk to the general public as appearing very low [1], while Dr Ben Brennan stated there is no significant new public health threat to the UK [1]. The BBC reports that WHO Director-General Tedros Adhanom Ghebreyesus expressed condolences [3], and that the WHO noted transmissibility of midge-borne viruses generally declines during cooler months [2]. The UN News source states there are no commercially available vaccines against Shamonda virus, according to the World Organisation for Animal Health (WOAH) [3]. The BBC also reports the virus has been detected in farm animals in Ireland, Germany, Italy, Spain, and Jersey [2], while The Guardian cites the Austrian Agency for Health and Food Safety reporting viral genetic material in the brains of horses with neurological symptoms in Switzerland and Germany [1]. The BBC specifies the patient was treated in a Lyon hospital [2], though other sources do not mention the hospital location."
+    },
+    {
+      "heading": "Public Health Response",
+      "body": "French health and agriculture ministries are leading the response, with support from WHO and ECDC [1][2][3]. Authorities emphasize that this appears to be an isolated case in a severely immunocompromised individual, with no evidence of person-to-person spread [1][2][3]. The seasonal decline in midge activity during cooler months may further limit transmission risk, according to WHO statements reported by the BBC [2]. Surveillance continues in livestock populations across affected European countries [1][2]. Officials maintain that the general public should not alter normal activities, though investigations into the virus's potential to cause neurological disease in humans will continue [1][2][3]."
+    }
+  ],
+  "keyTakeaways": [
+    "First known human case of Shamonda virus confirmed in France in an immunocompromised patient who died in early October 2026",
+    "Virus is midge-borne and primarily affects livestock; first detected in European livestock in summer 2026",
+    "No evidence of human-to-human transmission; authorities say risk to general public is very low",
+    "Investigations ongoing into infection source and whether virus contributed to death",
+    "WHO and ECDC monitoring; no commercially available vaccines exist for Shamonda virus"
+  ],
+  "whyItMatters": "This case marks the first documented human infection of a livestock virus now circulating in Europe, raising questions about zoonotic spillover potential. While the patient's severe immunocompromise and the absence of human-to-human transmission suggest limited immediate threat, the virus's establishment in European midge populations warrants continued surveillance.",
+  "sources": [
+    {
+      "index": 1,
+      "title": "Shamonda virus detected in human for first time in France",
+      "domain": "theguardian.com",
+      "url": "https://theguardian.com/world/2026/oct/22/shamonda-virus-detected-in-human-first-time-france",
+      "publishedAt": "2026-10-22"
+    },
+    {
+      "index": 2,
+      "title": "First human case of Shamonda virus detected in France, officials say",
+      "domain": "bbc.co.uk",
+      "url": "https://bbc.co.uk/news/articles/c6reyx1d9ge9o",
+      "publishedAt": "2026-10-22"
+    },
+    {
+      "index": 3,
+      "title": "First human case of Shamonda virus reported in France as patient dies",
+      "domain": "news.un.org",
+      "url": "https://news.un.org/en/story/2026/10/1168652",
+      "publishedAt": "2026-10-22"
+    }
+  ],
+  "keywords": [
+    "Shamonda virus",
+    "first human case",
+    "France",
+    "zoonotic disease",
+    "Culicoides midges"
+  ],
+  "hashtags": [
+    "#ShamondaVirus",
+    "#PublicHealth",
+    "#ZoonoticDisease",
+    "#France",
+    "#WHO"
+  ]
+}
