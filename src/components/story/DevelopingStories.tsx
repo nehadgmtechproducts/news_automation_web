@@ -38,8 +38,21 @@ function TabArrow({ direction, onClick }: { direction: "left" | "right"; onClick
  * in the server-rendered HTML (native <details>, no JavaScript needed to expand), and the default
  * tab shows all of them, so crawlers see the full content.
  */
-export function DevelopingStories({ stories }: { stories: StorySummary[] }) {
+export function DevelopingStories({
+  stories,
+  onSelect,
+}: {
+  stories: StorySummary[];
+  /** Told which story is open (null = none), so the lead card beside the panel can follow it. */
+  onSelect?: (key: string | null) => void;
+}) {
   const [tab, setTab] = useState<Tab>("all");
+  // One story open at a time. The first starts open, exactly as the server-rendered HTML shows it.
+  const [openKey, setOpenKey] = useState<string | null>(stories[0]?.key ?? null);
+  const select = (key: string | null) => {
+    setOpenKey(key);
+    onSelect?.(key);
+  };
 
   // Six tabs don't fit the narrow panel: show an arrow on each side while tabs are hidden there.
   const row = useRef<HTMLDivElement>(null);
@@ -67,7 +80,10 @@ export function DevelopingStories({ stories }: { stories: StorySummary[] }) {
   const visible = tab === "all" ? stories : stories.filter((s) => s.category === tab);
 
   return (
-    <Panel className="flex h-full flex-col">
+    // On wide screens the panel fills the box its parent reserves for it (absolute + inset-0) and scrolls
+    // inside it. It must NOT size itself: otherwise opening a timeline makes the row taller and the lead
+    // story's cover stretches with it (see HomeContent).
+    <Panel className="flex flex-col lg:absolute lg:inset-0 lg:overflow-y-auto">
       <SectionHeading title="Developing stories" href="/stories" />
 
       {stories.length === 0 ? (
@@ -90,7 +106,11 @@ export function DevelopingStories({ stories }: { stories: StorySummary[] }) {
                   type="button"
                   role="tab"
                   aria-selected={tab === t.id}
-                  onClick={() => setTab(t.id)}
+                  onClick={() => {
+                    setTab(t.id);
+                    // the new tab's first story opens, like on first load
+                    select((t.id === "all" ? stories : stories.filter((s) => s.category === t.id))[0]?.key ?? null);
+                  }}
                   className={cn(
                     "shrink-0 whitespace-nowrap rounded-full border px-3 py-1 text-caption font-medium transition-colors",
                     tab === t.id
@@ -112,9 +132,15 @@ export function DevelopingStories({ stories }: { stories: StorySummary[] }) {
                 No developing {tab} stories yet. A story appears here as soon as one is published.
               </p>
             )}
-            {visible.map((story, i) => (
-              <details key={`${tab}-${story.key}`} className="group py-3" open={i === 0}>
-                <summary className="flex cursor-pointer list-none items-start gap-3 [&::-webkit-details-marker]:hidden">
+            {visible.map((story) => (
+              <details key={`${tab}-${story.key}`} className="group py-3" open={openKey === story.key}>
+                <summary
+                  onClick={(e) => {
+                    e.preventDefault();               // we own the open state, so the card beside us can follow it
+                    select(openKey === story.key ? null : story.key);
+                  }}
+                  className="flex cursor-pointer list-none items-start gap-3 [&::-webkit-details-marker]:hidden"
+                >
                   <span className="relative mt-0.5 h-12 w-16 shrink-0 overflow-hidden rounded-control bg-surface-sunken">
                     <Image src={story.coverSrc} alt="" fill sizes="64px" className="object-cover" />
                   </span>

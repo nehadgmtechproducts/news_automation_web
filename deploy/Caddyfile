@@ -1,0 +1,25 @@
+# {$SITE_DOMAIN} comes from deploy/.env. Caddy gets a free HTTPS certificate for it automatically,
+# provided the domain's DNS "A" record points at this server and ports 80 and 443 are open.
+{$SITE_DOMAIN} {
+	encode zstd gzip
+
+	header {
+		X-Content-Type-Options nosniff
+		Referrer-Policy strict-origin-when-cross-origin
+		-Server
+	}
+
+	# Story pictures have a content hash in their file name (cover-1b336d6e.jpg), so a given URL
+	# never changes: browsers may keep it for a year.
+	@media path /media/*
+	handle @media {
+		reverse_proxy web:3000 {
+			header_down Cache-Control "public, max-age=31536000, immutable"
+		}
+	}
+
+	# Everything else. Caddy adds X-Forwarded-For, which the sign-up spam limit uses to tell visitors apart.
+	handle {
+		reverse_proxy web:3000
+	}
+}

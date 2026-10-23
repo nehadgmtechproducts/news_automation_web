@@ -60,6 +60,7 @@ export default function StandardsPage() {
           <li><strong>Finance.</strong> Prices and figures are reported as sourced, with the date they refer to. We never recommend buying, selling or holding anything, and never forecast prices.</li>
           <li><strong>Entertainment and sports.</strong> Results, names and titles are reported exactly as sourced. A rumour reported by only one outlet is left out or attributed.</li>
           <li><strong>Launches.</strong> Specifications, prices and availability are the manufacturer&apos;s claims and are described that way.</li>
+          <li><strong>Healthcare.</strong> Every medical claim is attributed to the study, journal, regulator, health body or company that made it, with the kind of evidence stated when our sources give it (for example a small trial or an animal study). We never say something cures, prevents or treats a condition unless a regulator or the study&apos;s authors said so, we do not confuse correlation with causation, and we give no medical advice. Case and death figures are attributed to the body that reported them.</li>
           <li><strong>Technology.</strong> Performance and benchmark claims belong to the company that made them.</li>
         </ul>
       </LegalSection>

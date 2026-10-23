@@ -10,4 +10,5 @@ export const categoryTheme: Record<CategoryName, { text: string; bg: string }> =
   Finance: { text: "text-cat-finance", bg: "bg-cat-finance" },
   Entertainment: { text: "text-cat-entertainment", bg: "bg-cat-entertainment" },
   Launches: { text: "text-cat-launches", bg: "bg-cat-launches" },
+  Healthcare: { text: "text-cat-healthcare", bg: "bg-cat-healthcare" },
 };

@@ -1,0 +1,12 @@
+node_modules
+.next
+.git
+.data
+.env*
+.claude
+tests
+# Sample/approved stories and their pictures are mounted at run time, never baked into the image.
+content/articles/*
+public/media/*
+tsconfig.tsbuildinfo
+next-env.d.ts

@@ -4,6 +4,7 @@ import { describe, expect, it } from "vitest";
 import { articleSchema, distinctSourceCount } from "@/core/article";
 import { FileArticleRepository } from "@/server/file-repository";
 import { newsArticleJsonLd, videoObjectJsonLd } from "@/seo/json-ld";
+import { withSampleVideo } from "./sample-video";
 
 const dir = path.join(process.cwd(), "content", "articles");
 const files = readdirSync(dir).filter((f) => f.endsWith(".json"));
@@ -50,7 +51,7 @@ describe("repository", () => {
 });
 
 describe("structured data", () => {
-  const a = articleSchema.parse(load(files[0]));
+  const a = withSampleVideo(articleSchema.parse(load(files[0])));
   it("emits absolute URLs and an ISO duration", () => {
     const origin = "https://example.com";
     const news = newsArticleJsonLd(a, origin) as Record<string, unknown>;

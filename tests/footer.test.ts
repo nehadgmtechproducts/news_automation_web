@@ -76,7 +76,10 @@ describe("footer links", () => {
 import { readFileSync } from "node:fs";
 
 describe("stacked grids on the home page", () => {
-  const source = readFileSync(path.join(process.cwd(), "src/components/home/HomeContent.tsx"), "utf8");
+  // The page-level grids live in HomeContent and in TopStory (the lead card beside Developing stories).
+  const source = ["HomeContent", "TopStory"]
+    .map((f) => readFileSync(path.join(process.cwd(), `src/components/home/${f}.tsx`), "utf8"))
+    .join("\n");
   const stacked = [...source.matchAll(/className="(grid[^"]*lg:grid-cols-\[[^"]*)"/g)].map((m) => m[1]);
 
   it("finds the page-level grids", () => {

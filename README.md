@@ -1,6 +1,6 @@
 # The Brief — news site
 
-Public website for the Automated Content Engine. It renders the engine's sourced articles and 45-second videos across five categories (Technology, Politics, Finance, Entertainment, Launches), built so search engines get complete, fast, server-rendered HTML.
+Public website for the Automated Content Engine. It renders the engine's sourced articles and 45-second videos across six categories (Technology, Politics, Finance, Entertainment, Launches, Healthcare), built so search engines get complete, fast, server-rendered HTML.
 
 **Stack:** Next.js 16 (App Router) · React 19 · TypeScript (strict) · Tailwind CSS 4 · zod · vitest
 
@@ -134,7 +134,7 @@ The home sidebar ranks stories by **real reads in the last 24 hours** (`core/rea
 
 A **story** is an ongoing subject; each article about it is an **update**. Articles carry `story: {key, label}` (assigned by the content engine, see its README) and the site groups on `story.key` (`src/core/stories.ts`).
 
-- **Home panel** (`components/story/DevelopingStories.tsx`): stories with a tab for **every category** (Technology, Politics, Finance, Entertainment, Launches, in taxonomy order, via `storyTabs()`), each with its count, **0 included**, so the filter is the same on every visit; choosing an empty one says so. A round "‹" / "›" arrow appears on whichever side tabs are hidden (`scrollEdges()`), and disappears when that end is reached. Then the newest story expanded, each with a day-grouped timeline. A client component only for the tab state; every timeline is in the server HTML (native `<details>`), so crawlers see it all. It is handed slim `StorySummary` objects, never whole articles.
+- **Home panel** (`components/story/DevelopingStories.tsx`): stories with a tab for **every category** (Technology, Politics, Finance, Entertainment, Launches, Healthcare, in taxonomy order, via `storyTabs()`), each with its count, **0 included**, so the filter is the same on every visit; choosing an empty one says so. A round "‹" / "›" arrow appears on whichever side tabs are hidden (`scrollEdges()`), and disappears when that end is reached. Then the newest story expanded, each with a day-grouped timeline. A client component only for the tab state; every timeline is in the server HTML (native `<details>`), so crawlers see it all. It is handed slim `StorySummary` objects, never whole articles.
 - **`/stories`** lists every story; **`/stories/<key>`** is the full timeline. Only a story with **2+ updates** has a timeline page; a one-update story links straight to its article (and its `/stories/<key>` URL redirects there), so one piece of content never has two URLs. Timeline pages are in the sitemap; one-update stories are not.
 - **"Live"** appears (after load, from the visitor's clock) only for a story with 2+ updates whose newest is under 24 hours old. It is never in cached HTML, so a cached page can't claim a story is live after it went quiet.
 - Times on timelines are **UTC** on purpose, so the server and every browser print identical text.
@@ -161,4 +161,4 @@ No `dangerouslySetInnerHTML` for content: article text is parsed to a typed tree
 ## Known follow-ups
 - MP4s are git-ignored; serve them from object storage/CDN in production (and set `video.src` to the absolute CDN URL — the schema currently requires a site-relative path).
 - `/about` states stories are human-reviewed; make sure that's true before launch.
-- Sample content is two real stories from the engine; the Apple story is ~3 days old and shouldn't be presented as "breaking".
+- Content in `content/articles` is whatever the backend has published (stories approved in Telegram). Older stories can be deleted at any time: remove the story's JSON and its `public/media/<slug>/` folder.

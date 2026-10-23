@@ -63,13 +63,13 @@ describe("storyTabs", () => {
   const withCategories = (...cats: Article["category"][]) => cats.map((category) => ({ category }));
 
   it("always lists every category, in taxonomy order, after 'All stories'", () => {
-    expect(storyTabs([]).map((t) => t.label)).toEqual(["All stories", "Technology", "Politics", "Finance", "Entertainment", "Launches"]);
+    expect(storyTabs([]).map((t) => t.label)).toEqual(["All stories", "Technology", "Politics", "Finance", "Entertainment", "Launches", "Healthcare"]);
   });
 
   it("counts stories per category, including zero for categories with none", () => {
     const tabs = storyTabs(withCategories("Technology", "Technology", "Finance"));
     expect(Object.fromEntries(tabs.map((t) => [t.label, t.count]))).toEqual({
-      "All stories": 3, Technology: 2, Politics: 0, Finance: 1, Entertainment: 0, Launches: 0,
+      "All stories": 3, Technology: 2, Politics: 0, Finance: 1, Entertainment: 0, Launches: 0, Healthcare: 0,
     });
   });
 
@@ -79,7 +79,7 @@ describe("storyTabs", () => {
   });
 
   it("has ids that match the category names (so filtering by tab id works)", () => {
-    expect(storyTabs([]).map((t) => t.id)).toEqual(["all", "Technology", "Politics", "Finance", "Entertainment", "Launches"]);
+    expect(storyTabs([]).map((t) => t.id)).toEqual(["all", "Technology", "Politics", "Finance", "Entertainment", "Launches", "Healthcare"]);
   });
 });
 

@@ -4,16 +4,15 @@ import { Chip } from "@/components/ui/Chip";
 import { Container } from "@/components/ui/Container";
 import { Panel } from "@/components/ui/Panel";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { DevelopingStories } from "@/components/story/DevelopingStories";
 import { VideoCard } from "@/components/video/VideoCard";
 import { cn } from "@/lib/cn";
 import { siteConfig } from "@/config/site";
 import type { Article } from "@/core/article";
 import { CATEGORIES } from "@/core/categories";
 import type { RegionName } from "@/core/regions";
-import { groupStories, toStorySummary } from "@/core/stories";
+import { groupStories, toFeatured, toStorySummary } from "@/core/stories";
 import { EditionBar } from "./EditionBar";
-import { FeaturedStory } from "./FeaturedStory";
+import { TopStory } from "./TopStory";
 
 /**
  * ONE grid for both the Latest news cards and the Watch cards. They sit in panels of the same width,
@@ -43,7 +42,7 @@ export function HomeContent({
 
   return (
     <Container className="space-y-8 py-6 lg:py-8">
-      <h1 className="sr-only">{heading}: latest news across technology, politics, finance, entertainment and launches</h1>
+      <h1 className="sr-only">{heading}: latest news across technology, politics, finance, entertainment, launches and healthcare</h1>
       <EditionBar active={edition} />
 
       {!lead ? (
@@ -53,10 +52,7 @@ export function HomeContent({
         </div>
       ) : (
         <>
-          <section aria-label="Top story" className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
-            <FeaturedStory article={lead} />
-            <DevelopingStories stories={stories} />
-          </section>
+          <TopStory lead={toFeatured(lead)} stories={stories} />
 
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,2.6fr)_minmax(0,1fr)]">
             <Panel className="sm:p-6">

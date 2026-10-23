@@ -8,7 +8,7 @@ export const siteConfig = {
   name: "The Brief",
   tagline: "Clear stories. A brighter tomorrow.",
   description:
-    "Sourced news on technology, politics, finance, entertainment and new launches, Every story lists the independent outlets it was written from.",
+    "Sourced news on technology, politics, finance, entertainment, new launches and healthcare. Every story lists the independent outlets it was written from.",
   /** Footer blurb. Deliberately modest: we summarise sourced reporting; we don't claim "expert analysis". */
   footerBlurb: "Sourced news from independent outlets, summarised so you can understand what matters, and why.",
   language: "en",

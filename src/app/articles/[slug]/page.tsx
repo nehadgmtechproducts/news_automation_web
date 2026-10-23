@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArticleBody } from "@/components/article/ArticleBody";
+import { HealthNotice } from "@/components/article/HealthNotice";
 import { ArticleMeta } from "@/components/article/ArticleMeta";
 import { RelatedStories } from "@/components/article/RelatedStories";
 import { SourceList } from "@/components/article/SourceList";
@@ -142,6 +143,8 @@ export default async function ArticlePage({ params }: PageProps<"/articles/[slug
             </div>
 
             <SourceList sources={article.sources} />
+
+            {article.category === "Healthcare" && <HealthNotice />}
 
             <p className="mt-8 rounded-card bg-canvas p-4 text-small text-ink-muted">
               This story was drafted with AI assistance from the sources above{article.video ? ", and its video uses AI-generated footage" : ""}.{" "}

@@ -1,4 +1,5 @@
 import { distinctSourceCount, type Article } from "./article";
+import { readingMinutes } from "./format";
 import { CATEGORIES, type CategoryName } from "./categories";
 import type { RegionName } from "./regions";
 
@@ -101,6 +102,8 @@ export function toTimelineItem(a: Article): TimelineItem {
  * sent to the browser just to draw a list, so only what the panel shows is included.
  */
 export type StorySummary = {
+  /** What the big lead card shows while this story is the one selected in the panel. */
+  featured: FeaturedData;
   key: string;
   label: string;
   category: CategoryName;
@@ -116,6 +119,7 @@ export type StorySummary = {
 
 export function toStorySummary(story: Story, maxUpdates = 5): StorySummary {
   return {
+    featured: toFeatured(story.lead),
     key: story.key,
     label: story.label,
     category: story.category,
@@ -126,4 +130,38 @@ export function toStorySummary(story: Story, maxUpdates = 5): StorySummary {
     href: story.updates.length >= 2 ? storyPath(story.key) : `/articles/${story.lead.slug}`,
     updates: story.updates.slice(0, maxUpdates).map(toTimelineItem),
   };
+}
+
+
+/**
+ * Just what the big lead card draws. Plain data (no article body), so it can be handed to the client
+ * component that swaps the card when a story is selected in "Developing stories".
+ */
+export type FeaturedData = {
+  slug: string;
+  title: string;
+  dek: string;
+  category: CategoryName;
+  coverSrc: string;
+  publishedAt: string;
+  readMinutes: number;
+  sourceCount: number;
+};
+
+export function toFeatured(article: Article): FeaturedData {
+  return {
+    slug: article.slug,
+    title: article.title,
+    dek: article.dek,
+    category: article.category,
+    coverSrc: article.heroImage.src,
+    publishedAt: article.publishedAt,
+    readMinutes: readingMinutes(article),
+    sourceCount: distinctSourceCount(article),
+  };
+}
+
+/** The card to show: the selected story's lead, or `fallback` when nothing is selected (or the key is unknown). */
+export function featuredFor(stories: Pick<StorySummary, "key" | "featured">[], selectedKey: string | null, fallback: FeaturedData): FeaturedData {
+  return stories.find((s) => s.key === selectedKey)?.featured ?? fallback;
 }

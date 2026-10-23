@@ -9,6 +9,7 @@ export const CATEGORIES = [
   { name: "Finance", slug: "finance", description: "Markets, earnings, the economy, currencies and crypto." },
   { name: "Entertainment", slug: "entertainment", description: "Movies, series, music, celebrities and sports." },
   { name: "Launches", slug: "launches", description: "New cars, bikes, phones, gadgets and other product launches." },
+  { name: "Healthcare", slug: "healthcare", description: "Medicine, public health, drugs and vaccines, outbreaks, research and health policy." },
 ] as const;
 
 export type CategoryName = (typeof CATEGORIES)[number]["name"];

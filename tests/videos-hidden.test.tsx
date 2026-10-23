@@ -4,10 +4,13 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { articleSchema, withoutVideo, type Article } from "@/core/article";
 import { navItems } from "@/config/site";
+import { withSampleVideo } from "./sample-video";
 
 const dir = path.join(process.cwd(), "content", "articles");
 const real: Article[] = readdirSync(dir).filter((f) => f.endsWith(".json")).map((f) => articleSchema.parse(JSON.parse(readFileSync(path.join(dir, f), "utf8"))));
-const withVideo = real.find((a) => a.video)!;
+// Published stories carry no video any more, so the "with a video" case is a synthetic article.
+const withVideo = withSampleVideo(real[0]);
+const all = [withVideo, ...real];
 
 describe("withoutVideo", () => {
   it("removes only the video and leaves the article otherwise identical", () => {
@@ -46,9 +49,19 @@ describe("navItems", () => {
 async function loadArticles(showVideos: boolean) {
   vi.resetModules();
   vi.doMock("@/config/env", () => ({ showVideos, siteUrl: "http://localhost:3000", readsFile: "x", subscribersFile: "y" }));
+  // an in-memory repository, so these tests do not depend on what is published in content/
+  vi.doMock("@/server/file-repository", () => ({
+    FileArticleRepository: class {
+      list = async () => all;
+      bySlug = async (slug: string) => all.find((a) => a.slug === slug) ?? null;
+    },
+  }));
   return import("@/server/articles");
 }
-afterEach(() => vi.doUnmock("@/config/env"));
+afterEach(() => {
+  vi.doUnmock("@/config/env");
+  vi.doUnmock("@/server/file-repository");
+});
 
 describe("server/articles with videos hidden or shown", () => {
   it("hidden: NO article anywhere carries a video, by list, by slug, and in the video list", async () => {
@@ -79,7 +92,7 @@ describe("home layout with and without videos", () => {
   }
 
   it("with videos: a Watch row", async () => {
-    const html = await renderHome(real);
+    const html = await renderHome(all);
     expect(html).toContain("Watch");
     expect(html).toContain('id="watch"');
   });

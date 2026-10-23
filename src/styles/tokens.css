@@ -49,6 +49,7 @@
   --color-cat-finance: #6d28d9;
   --color-cat-entertainment: #be185d;
   --color-cat-launches: #0f766e;
+  --color-cat-healthcare: #b45309;
 
   /* ---------- fonts (the font files themselves are loaded in config/fonts.ts) ---------- */
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;

@@ -9,8 +9,8 @@ const dir = path.join(process.cwd(), "content", "articles");
 const first = JSON.parse(readFileSync(path.join(dir, readdirSync(dir).filter((f) => f.endsWith(".json"))[0]), "utf8"));
 
 describe("category taxonomy", () => {
-  it("is the five agreed categories, in nav order", () => {
-    expect([...CATEGORY_NAMES]).toEqual(["Technology", "Politics", "Finance", "Entertainment", "Launches"]);
+  it("is the six agreed categories, in nav order", () => {
+    expect([...CATEGORY_NAMES]).toEqual(["Technology", "Politics", "Finance", "Entertainment", "Launches", "Healthcare"]);
   });
 
   it("has unique, URL-safe slugs and round-trips by slug and name", () => {

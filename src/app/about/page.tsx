@@ -19,8 +19,8 @@ export default function AboutPage() {
   return (
     <LegalPage title="How we work">
       <p>
-        {siteConfig.name} publishes short, sourced explanations of news on technology, politics, finance, entertainment and
-        new launches. We would rather be clear about how that is done than pretend a newsroom of reporters sits behind every
+        {siteConfig.name} publishes short, sourced explanations of news on technology, politics, finance, entertainment,
+        new launches and healthcare. We would rather be clear about how that is done than pretend a newsroom of reporters sits behind every
         story.
       </p>
 

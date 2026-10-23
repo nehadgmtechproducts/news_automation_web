@@ -1,0 +1,57 @@
+# Website + HTTPS for the VPS.  Run from this folder:   docker compose up -d --build
+#
+#   web    the Next.js site. Restarts itself a few seconds after the backend adds a story
+#          (see entrypoint.sh), so new pictures are served.
+#   caddy  the public front door: gets and renews the HTTPS certificate for your domain by itself,
+#          then passes visitors to the site.
+#
+# The backend (content-engine) runs from its own docker-compose.yml. The two only share a folder:
+# the backend writes approved stories into SITE_DATA_DIR, and the site reads them from there.
+
+services:
+  web:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+      args:
+        SITE_URL: ${SITE_URL:?set SITE_URL in deploy/.env (https://your-domain)}
+    restart: unless-stopped
+    init: true
+    environment:
+      SITE_URL: ${SITE_URL}
+      CONTACT_EMAIL: ${CONTACT_EMAIL:-}
+      SOCIAL_INSTAGRAM: ${SOCIAL_INSTAGRAM:-}
+      SOCIAL_YOUTUBE: ${SOCIAL_YOUTUBE:-}
+      SOCIAL_LINKEDIN: ${SOCIAL_LINKEDIN:-}
+      SOCIAL_X: ${SOCIAL_X:-}
+      SHOW_VIDEOS: ${SHOW_VIDEOS:-false}
+    volumes:
+      # Read-only: the site only reads stories. The backend is the only writer.
+      - ${SITE_DATA_DIR:?set SITE_DATA_DIR in deploy/.env}/content:/app/content:ro
+      - ${SITE_DATA_DIR}/public/media:/app/public/media:ro
+      # Read counts and newsletter sign-ups. Keep this volume; back it up.
+      - site_state:/app/.data
+    expose:
+      - "3000"
+
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    depends_on:
+      web:
+        condition: service_healthy
+    environment:
+      SITE_DOMAIN: ${SITE_DOMAIN:?set SITE_DOMAIN in deploy/.env (e.g. thebrief.example.com)}
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data        # the certificates: keep this volume, or you will request new ones on every restart
+      - caddy_config:/config
+
+volumes:
+  site_state:
+  caddy_data:
+  caddy_config:
