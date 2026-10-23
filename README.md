@@ -162,3 +162,19 @@ No `dangerouslySetInnerHTML` for content: article text is parsed to a typed tree
 - MP4s are git-ignored; serve them from object storage/CDN in production (and set `video.src` to the absolute CDN URL — the schema currently requires a site-relative path).
 - `/about` states stories are human-reviewed; make sure that's true before launch.
 - Content in `content/articles` is whatever the backend has published (stories approved in Telegram). Older stories can be deleted at any time: remove the story's JSON and its `public/media/<slug>/` folder.
+
+## Committing published stories automatically
+
+Every approved story arrives as new files in `content/articles` and `public/media`. You do not need to commit
+them by hand: `scripts/publish-content.sh` commits and pushes **only** those folders (never your code, staged or
+not) and does nothing when there is nothing new. A commit is called `Publish N stories` and lists the headlines.
+
+```bash
+./scripts/publish-content.sh                     # once, now
+./scripts/auto-publish-macos.sh watch            # every 5 minutes, while this Terminal window is open
+./scripts/auto-publish-macos.sh install          # every 5 minutes in the background (see the note in the script about ~/Documents)
+```
+
+It waits for the backend to finish writing a story, skips if you are not on `main`, runs one at a time, and
+if someone pushed code in the meantime it rebases its commit on top and pushes again. Tests:
+`tests/publish-content.test.ts` (real throwaway git repos). On the server see `deploy/README.md`.

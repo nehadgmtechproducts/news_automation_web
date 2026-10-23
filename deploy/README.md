@@ -132,13 +132,43 @@ Open `https://your-domain`. The first build takes a few minutes.
 | See backend logs | `cd /srv/news/content_automation && docker compose logs -f worker approvals` |
 | Restart the website by hand | `docker compose restart web` (in `deploy/`) |
 
+## Keeping a copy of every story on GitHub (optional, automatic)
+
+The site does **not** need this: it reads stories straight from `site-data`, so every approval is live
+on its own. This is only for a history and an off-server copy of what was published, without anyone
+running `git commit` after each approval.
+
+`scripts/publish-content.sh` commits and pushes new stories (only `content/articles` and `public/media`,
+never code) and does nothing when there is nothing new. On the server, point it at `site-data` made into
+its own small repo. Use a **separate private repo for content** (for example `news_content`) so story
+commits do not mix with code commits.
+
+```bash
+# once: make site-data a git repo with its own deploy key (GitHub: repo > Settings > Deploy keys > allow write access)
+ssh-keygen -t ed25519 -N "" -f ~/.ssh/news_content_deploy        # then paste ~/.ssh/news_content_deploy.pub into GitHub
+printf 'Host github-content\n  HostName github.com\n  User git\n  IdentityFile ~/.ssh/news_content_deploy\n  IdentitiesOnly yes\n' >> ~/.ssh/config
+cd /srv/news/site-data
+git init -b main && git remote add origin git@github-content:YOUR-ORG/news_content.git
+git add -A && git commit -m "Initial content" && git push -u origin main
+
+# every 5 minutes: crontab -e, then add this ONE line
+*/5 * * * * REPO_DIR=/srv/news/site-data /srv/news/news_automation_web/scripts/publish-content.sh >> /var/log/publish-content.log 2>&1
+```
+
+Each approval then shows up on GitHub within about five minutes as a commit named `Publish 1 story` listing
+the headline. A new server can be restored by cloning that repo into `site-data`.
+
+On a **Mac** (a development laptop): `./scripts/auto-publish-macos.sh watch` in a Terminal window does the
+same for the website repo while the window is open. `install` runs it as a background job, but macOS
+blocks background jobs from `~/Documents` unless `/bin/bash` has Full Disk Access; the command checks and says so.
+
 ## Backups (do this before launch)
 
 Three things hold data that cannot be recreated:
 
 | What | Where | Back up with |
 |---|---|---|
-| Published stories | `/srv/news/site-data` | copy the folder (`tar czf`) |
+| Published stories | `/srv/news/site-data` | the auto-publisher above (a copy on GitHub), or copy the folder (`tar czf`) |
 | Newsletter sign-ups and read counts | Docker volume `site_state` | `docker run --rm -v deploy_site_state:/d -v $PWD:/b alpine tar czf /b/site_state.tgz -C /d .` (the volume's name starts with the folder name; check `docker volume ls`) |
 | Backend database | `/srv/news/content_automation/pgdata` | `docker compose exec -T postgres pg_dump -U engine content_engine > backup.sql` |
 
