@@ -3,6 +3,7 @@ import Link from "next/link";
 import { TimeAgo } from "@/components/client/TimeAgo";
 import { VerifiedBadge } from "@/components/article/VerifiedBadge";
 import { ButtonLink } from "@/components/ui/ButtonLink";
+import { AiBadge } from "@/components/ui/AiBadge";
 import { CategoryTag } from "@/components/ui/CategoryTag";
 import { ArrowRightIcon, ClockIcon } from "@/components/ui/icons";
 import { formatDate } from "@/core/format";
@@ -27,6 +28,7 @@ export function FeaturedStory({ featured }: { featured: FeaturedData }) {
         className="-z-20 object-cover"
       />
       <div className="absolute inset-0 -z-10 bg-linear-to-t from-navy/95 via-navy/55 to-navy/10" />
+      {featured.coverAi && <AiBadge size="full" />}
 
       <div className="mt-auto flex w-full flex-col gap-4 p-6 sm:p-8">
         <CategoryTag category={featured.category} variant="solid" className="self-start" />

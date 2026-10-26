@@ -2,7 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { LiveBadge } from "@/components/client/LiveBadge";
 import { TimeAgo } from "@/components/client/TimeAgo";
+import { AiBadge } from "@/components/ui/AiBadge";
 import { CategoryTag } from "@/components/ui/CategoryTag";
+import { isAiGenerated } from "@/core/article";
 import { formatDate } from "@/core/format";
 import { storyPath, type Story } from "@/core/stories";
 
@@ -13,6 +15,7 @@ export function StoryRow({ story, priority = false }: { story: Story; priority?:
     <article className="group relative flex gap-4 rounded-card bg-surface p-4 shadow-card transition-shadow hover:shadow-lift">
       <div className="relative h-24 w-36 shrink-0 overflow-hidden rounded-control bg-surface-sunken">
         <Image src={story.lead.heroImage.src} alt="" fill sizes="144px" priority={priority} className="object-cover" />
+        {isAiGenerated(story.lead.heroImage) && <AiBadge size="mini" />}
       </div>
       <div className="min-w-0">
         <div className="flex items-center gap-3">

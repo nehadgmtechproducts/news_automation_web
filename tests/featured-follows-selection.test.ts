@@ -39,7 +39,7 @@ describe("the lead card follows the story selected in Developing stories", () =>
 
   it("carries plain data only: no article body is sent to the browser", () => {
     const f = featuredFor(stories, "a", lead) as Record<string, unknown>;
-    expect(Object.keys(f).sort()).toEqual(["category", "coverSrc", "dek", "publishedAt", "readMinutes", "slug", "sourceCount", "title"]);
+    expect(Object.keys(f).sort()).toEqual(["category", "coverAi", "coverSrc", "dek", "publishedAt", "readMinutes", "slug", "sourceCount", "title"]);
     expect(f.readMinutes).toBeGreaterThanOrEqual(1);
     expect(f.sourceCount).toBeGreaterThanOrEqual(2);
   });

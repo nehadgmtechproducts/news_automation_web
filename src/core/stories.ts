@@ -1,4 +1,4 @@
-import { distinctSourceCount, type Article } from "./article";
+import { distinctSourceCount, isAiGenerated, type Article } from "./article";
 import { readingMinutes } from "./format";
 import { CATEGORIES, type CategoryName } from "./categories";
 import type { RegionName } from "./regions";
@@ -108,6 +108,8 @@ export type StorySummary = {
   label: string;
   category: CategoryName;
   coverSrc: string;
+  /** The cover is an AI-generated illustration (the panel's thumbnail then carries the AI badge). */
+  coverAi: boolean;
   updateCount: number;
   sourceCount: number;
   lastUpdatedAt: string;
@@ -124,6 +126,7 @@ export function toStorySummary(story: Story, maxUpdates = 5): StorySummary {
     label: story.label,
     category: story.category,
     coverSrc: story.lead.heroImage.src,
+    coverAi: isAiGenerated(story.lead.heroImage),
     updateCount: story.updates.length,
     sourceCount: story.sourceCount,
     lastUpdatedAt: story.lastUpdatedAt,
@@ -143,6 +146,7 @@ export type FeaturedData = {
   dek: string;
   category: CategoryName;
   coverSrc: string;
+  coverAi: boolean;
   publishedAt: string;
   readMinutes: number;
   sourceCount: number;
@@ -155,6 +159,7 @@ export function toFeatured(article: Article): FeaturedData {
     dek: article.dek,
     category: article.category,
     coverSrc: article.heroImage.src,
+    coverAi: isAiGenerated(article.heroImage),
     publishedAt: article.publishedAt,
     readMinutes: readingMinutes(article),
     sourceCount: distinctSourceCount(article),

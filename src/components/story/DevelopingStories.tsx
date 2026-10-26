@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { LiveBadge } from "@/components/client/LiveBadge";
+import { AiBadge } from "@/components/ui/AiBadge";
 import { TimeAgo } from "@/components/client/TimeAgo";
 import { Panel } from "@/components/ui/Panel";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -143,6 +144,7 @@ export function DevelopingStories({
                 >
                   <span className="relative mt-0.5 h-12 w-16 shrink-0 overflow-hidden rounded-control bg-surface-sunken">
                     <Image src={story.coverSrc} alt="" fill sizes="64px" className="object-cover" />
+                    {story.coverAi && <AiBadge size="mini" />}
                   </span>
                   <span className="min-w-0 flex-1">
                     <LiveBadge story={{ lastUpdatedAt: story.lastUpdatedAt, updates: Array(story.updateCount).fill(null) }} />

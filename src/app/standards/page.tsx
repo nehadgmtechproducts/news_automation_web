@@ -39,7 +39,7 @@ export default function StandardsPage() {
       <LegalSection title="How AI is used">
         <ul>
           <li>Articles are drafted by an AI model from the cited sources and nothing else. It is not allowed to add outside knowledge.</li>
-          <li>Many story pictures are AI-generated illustrations of the subject. They are not photographs of the event and are labelled &ldquo;Illustration generated with AI&rdquo; on the article page. For politics stories we avoid generating images of people, crowds, soldiers or weapons.</li>
+          <li>A story&apos;s picture is a photograph from one of its sources, credited to that outlet with a link; or a &ldquo;file photo&rdquo; of the person, organisation or place the story is about, from Wikimedia Commons under a free licence and credited to its photographer (it shows the subject, not the event); or an AI-generated illustration of the subject. We never use an agency or stock picture, and never a real photograph on a story about a sexual offence or a child. AI illustrations are not photographs of the event; they carry an &ldquo;AI-generated&rdquo; badge and the caption &ldquo;Illustration generated with AI&rdquo;. For politics stories we avoid generating images of people, crowds, soldiers or weapons.</li>
           {showVideos && (
             <>
               <li>Voiceovers are synthetic voices.</li>

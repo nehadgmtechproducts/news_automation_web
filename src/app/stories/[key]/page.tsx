@@ -6,10 +6,12 @@ import { RelatedStories } from "@/components/article/RelatedStories";
 import { LiveBadge } from "@/components/client/LiveBadge";
 import { TimeAgo } from "@/components/client/TimeAgo";
 import { StoryTimeline } from "@/components/story/StoryTimeline";
+import { AiBadge } from "@/components/ui/AiBadge";
 import { CategoryTag } from "@/components/ui/CategoryTag";
 import { Container } from "@/components/ui/Container";
 import { Panel } from "@/components/ui/Panel";
 import { formatDate } from "@/core/format";
+import { isAiGenerated } from "@/core/article";
 import { groupStories, toTimelineItem } from "@/core/stories";
 import { getAllArticles } from "@/server/articles";
 import { pageMetadata } from "@/seo/metadata";
@@ -54,6 +56,7 @@ export default async function StoryPage({ params }: PageProps<"/stories/[key]">)
 
       <header className="relative isolate overflow-hidden rounded-card bg-navy p-6 text-ink-inverse shadow-card sm:p-8">
         <Image src={story.lead.heroImage.src} alt="" fill priority sizes="100vw" className="-z-20 object-cover" />
+        {isAiGenerated(story.lead.heroImage) && <AiBadge size="full" />}
         <div className="absolute inset-0 -z-10 bg-linear-to-r from-navy/95 via-navy/70 to-navy/30" />
         <div className="flex items-center gap-3">
           <LiveBadge story={story} />

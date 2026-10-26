@@ -56,10 +56,6 @@ export default function PrivacyPage() {
         <p>You can ask us to remove your newsletter address, or to tell you what we hold about you, at any time.</p>
         <ContactSentence email={contactEmail} />
       </LegalSection>
-
-      <LegalSection title="Changes">
-        <p>If this policy changes, the date at the top changes with it.</p>
-      </LegalSection>
     </LegalPage>
   );
 }

@@ -58,7 +58,7 @@ describe("footer links", () => {
   });
 
   it("has the three legal links of the design", () => {
-    expect(legalLinks.map((l) => l.label)).toEqual(["Privacy Policy", "Terms of Use", "Cookie Preferences"]);
+    expect(legalLinks.map((l) => l.label)).toEqual(["Privacy Policy", "Terms of Use", "Cookie Preferences", "Legal & Compliance"]);
   });
 
   it("has no duplicate labels inside a column", () => {

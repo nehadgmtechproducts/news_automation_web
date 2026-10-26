@@ -41,4 +41,5 @@ export const legalLinks: FooterLink[] = [
   { label: "Privacy Policy", href: "/privacy" },
   { label: "Terms of Use", href: "/terms" },
   { label: "Cookie Preferences", href: "/cookies" },
+  { label: "Legal & Compliance", href: "/legal-compliance" },
 ];

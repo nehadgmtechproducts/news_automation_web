@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
+import { AiBadge } from "@/components/ui/AiBadge";
 import { CategoryTag } from "@/components/ui/CategoryTag";
 import { cn } from "@/lib/cn";
-import type { Article } from "@/core/article";
+import { isAiGenerated, type Article } from "@/core/article";
 import { formatDuration } from "@/core/format";
 import { ArticleMeta } from "./ArticleMeta";
 
@@ -33,6 +34,7 @@ export function ArticleCard({
           priority={priority}
           className="object-cover"
         />
+        {isAiGenerated(article.heroImage) && <AiBadge size={compact ? "mini" : "short"} />}
         {article.video && (
           <span className={cn("absolute rounded-control bg-navy/80 font-semibold text-ink-inverse", compact ? "bottom-1.5 right-1.5 px-1.5 py-0.5 text-label" : "bottom-2 right-2 px-2 py-0.5 text-caption")}>
             ▶ {formatDuration(article.video.durationSeconds)}

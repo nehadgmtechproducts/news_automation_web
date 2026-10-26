@@ -1,4 +1,4 @@
-import type { Article } from "@/core/article";
+import { isAiGenerated, type Article } from "@/core/article";
 import { toIsoDuration } from "@/core/format";
 import { siteConfig } from "@/config/site";
 
@@ -39,7 +39,12 @@ export function newsArticleJsonLd(article: Article, origin: string): Json {
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
     headline: article.title,
     description: article.metaDescription,
-    image: [article.socialImage, article.heroImage].filter((i) => !!i).map((i) => abs(origin, i.src)),
+    // Search engines show these pictures on their own, away from the page's AI badge, so an AI cover is not
+    // offered when there is a share image (which carries the label on the picture itself).
+    image: (article.socialImage
+      ? [article.socialImage, ...(isAiGenerated(article.heroImage) ? [] : [article.heroImage])]
+      : [article.heroImage]
+    ).map((i) => abs(origin, i.src)),
     datePublished: article.publishedAt,
     dateModified: article.updatedAt,
     articleSection: article.category,

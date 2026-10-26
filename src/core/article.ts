@@ -27,9 +27,21 @@ export const imageSchema = z.object({
   alt: z.string().min(1),
   width: z.number().int().positive(),
   height: z.number().int().positive(),
-  /** Shown under the picture when set, e.g. "Illustration generated with AI". */
+  /** Shown under the picture when set: "Illustration generated with AI", or "Image: The Guardian" for a source photo. */
   credit: z.string().min(1).optional(),
+  /** For a source photo: the page the picture came from. The credit links there. */
+  creditUrl: z.url().optional(),
+  /** The picture is an AI-generated illustration (it then carries the AI badge). */
+  aiGenerated: z.boolean().optional(),
 });
+
+/**
+ * True for a picture that is an AI-generated illustration. The exporter writes `aiGenerated` for those. Stories
+ * exported before that field existed carry only the credit "Illustration generated with AI", so that still counts.
+ * A source photo ("Image: The Guardian") is NOT AI-generated, and must not wear the AI badge.
+ */
+export const isAiGenerated = (image: { credit?: string; aiGenerated?: boolean }): boolean =>
+  image.aiGenerated ?? Boolean(image.credit?.toLowerCase().startsWith("illustration generated with ai"));
 
 export const videoSchema = z.object({
   src: publicPath,

@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { TimeAgo } from "@/components/client/TimeAgo";
+import { AiBadge } from "@/components/ui/AiBadge";
 import { CategoryTag } from "@/components/ui/CategoryTag";
-import type { Article } from "@/core/article";
+import { isAiGenerated, type Article } from "@/core/article";
 import { formatDate } from "@/core/format";
 
 /** Compact row: small thumbnail + category + title + time. Used in sidebars and rankings. */
@@ -11,6 +12,7 @@ export function ArticleListItem({ article, showCategory = true }: { article: Art
     <article className="group relative flex items-start gap-3">
       <div className="relative h-16 w-24 shrink-0 overflow-hidden rounded-control bg-surface-sunken">
         <Image src={article.heroImage.src} alt="" fill sizes="96px" className="object-cover" />
+        {isAiGenerated(article.heroImage) && <AiBadge size="mini" />}
       </div>
       <div className="min-w-0">
         {showCategory && <CategoryTag category={article.category} />}

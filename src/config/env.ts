@@ -19,6 +19,10 @@ const schema = z.object({
   /** Show videos on the site (player, Watch page and links, duration badges). Off by default: articles are text + images. */
   SHOW_VIDEOS: z.enum(["true", "false"]).default("false"),
   CONTACT_EMAIL: z.email().optional(),
+  /** The Resident Grievance Officer the IT Rules 2021 require a news publisher to name (see /legal-compliance). */
+  GRIEVANCE_OFFICER_NAME: z.string().trim().min(1).optional(),
+  GRIEVANCE_OFFICER_EMAIL: z.email().optional(),
+  GRIEVANCE_OFFICER_ADDRESS: z.string().trim().min(1).optional(),
   /** Real profile URLs. The footer shows an icon only for the ones that are set: never a link to nowhere. */
   SOCIAL_INSTAGRAM: z.url().optional(),
   SOCIAL_YOUTUBE: z.url().optional(),
@@ -32,6 +36,9 @@ const parsed = schema.safeParse({
   SUBSCRIBERS_FILE: process.env.SUBSCRIBERS_FILE || undefined,
   SHOW_VIDEOS: process.env.SHOW_VIDEOS || undefined,
   CONTACT_EMAIL: process.env.CONTACT_EMAIL || undefined,
+  GRIEVANCE_OFFICER_NAME: process.env.GRIEVANCE_OFFICER_NAME || undefined,
+  GRIEVANCE_OFFICER_EMAIL: process.env.GRIEVANCE_OFFICER_EMAIL || undefined,
+  GRIEVANCE_OFFICER_ADDRESS: process.env.GRIEVANCE_OFFICER_ADDRESS || undefined,
   SOCIAL_INSTAGRAM: process.env.SOCIAL_INSTAGRAM || undefined,
   SOCIAL_YOUTUBE: process.env.SOCIAL_YOUTUBE || undefined,
   SOCIAL_LINKEDIN: process.env.SOCIAL_LINKEDIN || undefined,
@@ -62,6 +69,15 @@ export const contactEmail = parsed.data.CONTACT_EMAIL;
 // policy a way to report mistakes. Both need a real address before launch.
 if (process.env.NODE_ENV === "production" && !contactEmail) {
   console.warn("[config] CONTACT_EMAIL is not set: readers have no way to request corrections or data removal.");
+}
+
+/** Shown on /legal-compliance only when a real person is configured: never a placeholder, never an invented name. */
+export const grievanceOfficer =
+  parsed.data.GRIEVANCE_OFFICER_NAME && parsed.data.GRIEVANCE_OFFICER_EMAIL
+    ? { name: parsed.data.GRIEVANCE_OFFICER_NAME, email: parsed.data.GRIEVANCE_OFFICER_EMAIL, address: parsed.data.GRIEVANCE_OFFICER_ADDRESS }
+    : undefined;
+if (process.env.NODE_ENV === "production" && !grievanceOfficer) {
+  console.warn("[config] GRIEVANCE_OFFICER_NAME / GRIEVANCE_OFFICER_EMAIL are not set: /legal-compliance has no Grievance Officer to name, which the IT Rules require of a news publisher.");
 }
 
 export const socialUrls = {

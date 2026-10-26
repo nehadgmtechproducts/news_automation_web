@@ -188,3 +188,6 @@ Turn on the provider's automatic server snapshots as well.
 - The newsletter only **collects** addresses; nothing sends the daily email yet.
 - Have `/terms` and `/privacy` reviewed by someone qualified.
 - Set `CONTACT_EMAIL` and the real social links in `deploy/.env`.
+- **Name the Grievance Officer.** Set `GRIEVANCE_OFFICER_NAME`, `GRIEVANCE_OFFICER_EMAIL` and `GRIEVANCE_OFFICER_ADDRESS` in `deploy/.env`: a real person with a real mailbox, as the IT Rules, 2021 require of a news publisher. `/legal-compliance` and the note under every story show them; with them unset the page names nobody and the server logs a warning.
+- **Have `/legal-compliance` and the note under each story reviewed by a media or IP lawyer.** They describe our practice and cite statutes; they are not legal advice, and a disclaimer only protects a publisher whose practice matches it.
+- Put the page's address (`https://your-domain/legal-compliance`) in your social media bios.

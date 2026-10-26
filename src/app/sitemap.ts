@@ -25,6 +25,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: absoluteUrl("/standards"), changeFrequency: "yearly", priority: 0.4 },
     { url: absoluteUrl("/privacy"), changeFrequency: "yearly", priority: 0.2 },
     { url: absoluteUrl("/terms"), changeFrequency: "yearly", priority: 0.2 },
+    { url: absoluteUrl("/legal-compliance"), changeFrequency: "yearly", priority: 0.3 },
     { url: absoluteUrl("/cookies"), changeFrequency: "yearly", priority: 0.2 },
     ...categories.filter((c) => c.count > 0).map((c) => ({
       url: absoluteUrl(`/category/${c.slug}`),

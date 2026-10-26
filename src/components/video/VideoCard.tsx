@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
+import { AiBadge } from "@/components/ui/AiBadge";
 import { PlayIcon } from "@/components/ui/icons";
-import type { Article } from "@/core/article";
+import { isAiGenerated, type Article } from "@/core/article";
 import { formatDuration } from "@/core/format";
 
 /** Wide thumbnail with a play badge and duration; links to the article, where the video plays. */
@@ -17,6 +18,7 @@ export function VideoCard({ article }: { article: Article }) {
           sizes="(min-width: 1280px) 18vw, (min-width: 768px) 30vw, 50vw"
           className="object-cover transition-transform duration-300 group-hover:scale-105"
         />
+        {isAiGenerated(article.heroImage) && <AiBadge size="short" />}
         <span className="absolute bottom-2 left-2 grid size-8 place-items-center rounded-full bg-white text-ink">
           <PlayIcon className="size-4" />
         </span>

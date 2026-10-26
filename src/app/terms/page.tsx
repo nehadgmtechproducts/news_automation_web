@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ContactSentence, LegalPage, LegalSection } from "@/components/layout/LegalPage";
-import { contactEmail } from "@/config/env";
+import { LegalPage, LegalSection } from "@/components/layout/LegalPage";
 import { siteConfig } from "@/config/site";
 import { pageMetadata } from "@/seo/metadata";
 
@@ -50,10 +49,6 @@ export default function TermsPage() {
           date at the top shows when they last changed. To the extent the law allows, we are not liable for loss arising from
           your use of the site.
         </p>
-      </LegalSection>
-
-      <LegalSection title="Questions">
-        <ContactSentence email={contactEmail} />
       </LegalSection>
     </LegalPage>
   );

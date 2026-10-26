@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArticleBody } from "@/components/article/ArticleBody";
 import { HealthNotice } from "@/components/article/HealthNotice";
+import { LegalDisclaimer } from "@/components/article/LegalDisclaimer";
 import { ArticleMeta } from "@/components/article/ArticleMeta";
 import { RelatedStories } from "@/components/article/RelatedStories";
 import { SourceList } from "@/components/article/SourceList";
@@ -12,16 +13,18 @@ import { ReadBeacon } from "@/components/client/ReadBeacon";
 import { ShareButton } from "@/components/client/ShareButton";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { StoryTimelinePanel } from "@/components/story/StoryTimelinePanel";
+import { AiBadge } from "@/components/ui/AiBadge";
 import { CategoryTag } from "@/components/ui/CategoryTag";
 import { Container } from "@/components/ui/Container";
 import { Panel } from "@/components/ui/Panel";
 import { VideoPlayer } from "@/components/video/VideoPlayer";
-import { siteUrl } from "@/config/env";
+import { grievanceOfficer, siteUrl } from "@/config/env";
 import { siteConfig } from "@/config/site";
 import { articleBreadcrumbs, linkableCrumbs } from "@/core/breadcrumbs";
 import { categoryByName } from "@/core/categories";
 import { formatDate, formatTimeUtc } from "@/core/format";
 import { buildOutline } from "@/core/outline";
+import { isAiGenerated } from "@/core/article";
 import { groupStories } from "@/core/stories";
 import { JsonLd } from "@/seo/JsonLd";
 import { breadcrumbJsonLd, newsArticleJsonLd, videoObjectJsonLd } from "@/seo/json-ld";
@@ -97,17 +100,28 @@ export default async function ArticlePage({ params }: PageProps<"/articles/[slug
             </header>
 
             <figure className="mt-6">
-              <Image
-                src={article.heroImage.src}
-                alt={article.heroImage.alt}
-                width={article.heroImage.width}
-                height={article.heroImage.height}
-                sizes="(min-width: 1280px) 700px, (min-width: 1024px) 60vw, 100vw"
-                priority
-                className="aspect-video w-full rounded-card object-cover"
-              />
+              <div className="relative">
+                <Image
+                  src={article.heroImage.src}
+                  alt={article.heroImage.alt}
+                  width={article.heroImage.width}
+                  height={article.heroImage.height}
+                  sizes="(min-width: 1280px) 700px, (min-width: 1024px) 60vw, 100vw"
+                  priority
+                  className="aspect-video w-full rounded-card object-cover"
+                />
+                {isAiGenerated(article.heroImage) && <AiBadge size="full" />}
+              </div>
               {article.heroImage.credit && (
-                <figcaption className="mt-2 text-caption text-ink-subtle">{article.heroImage.credit}</figcaption>
+                <figcaption className="mt-2 text-caption text-ink-subtle">
+                  {article.heroImage.creditUrl ? (
+                    <a href={article.heroImage.creditUrl} target="_blank" rel="noopener noreferrer nofollow" className="hover:underline">
+                      {article.heroImage.credit}
+                    </a>
+                  ) : (
+                    article.heroImage.credit
+                  )}
+                </figcaption>
               )}
             </figure>
 
@@ -143,6 +157,9 @@ export default async function ArticlePage({ params }: PageProps<"/articles/[slug
             </div>
 
             <SourceList sources={article.sources} />
+
+            {/* The legal note and its "Legal & Compliance" link sit directly under the sources they refer to. */}
+            <LegalDisclaimer grievanceEmail={grievanceOfficer?.email} />
 
             {article.category === "Healthcare" && <HealthNotice />}
 

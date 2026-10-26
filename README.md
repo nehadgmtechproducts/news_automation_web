@@ -178,3 +178,37 @@ not) and does nothing when there is nothing new. A commit is called `Publish N s
 It waits for the backend to finish writing a story, skips if you are not on `main`, runs one at a time, and
 if someone pushed code in the meantime it rebases its commit on top and pushes again. Tests:
 `tests/publish-content.test.ts` (real throwaway git repos). On the server see `deploy/README.md`.
+
+## Legal and editorial compliance page
+
+`/legal-compliance` (linked in the footer and the sitemap) explains the laws the site works under: freedom of the press, copyright
+fair dealing, defamation and court reporting, victim and child anonymity, AI disclosure and how to complain. A short legal note
+(`components/article/LegalDisclaimer.tsx`) sits under every story and links to it. The text is in
+`components/legal/LegalComplianceContent.tsx`; the statute table is data (`STATUTES`).
+
+- **It must stay true.** Each promise about practice is backed by something real: the backend's drafting rules (accused persons are not called guilty; children and survivors of sexual offences are not identified, pinned by `content-engine/tests/test_editorial_rules.py`), human approval in Telegram, the source list under every story, and the "Illustration generated with AI" caption. If one of those changes, change the page.
+- **Grievance Officer.** `GRIEVANCE_OFFICER_NAME`, `_EMAIL`, `_ADDRESS` in `.env`. Nothing is shown if they are unset; a production start logs a warning.
+- **Not legal advice.** Have it reviewed by a media or IP lawyer before launch. Rule numbers from the 2026 IT Rules amendments are deliberately not quoted because they could not be verified; add them once your lawyer confirms them.
+
+## Where story pictures come from
+
+A story's picture (`heroImage`) is one of four things, recorded in its JSON:
+- **a file photo** of the story's subject from Wikimedia Commons: `credit` ("File photo. Photo: author / Wikimedia Commons (licence), cropped") and `creditUrl` (its Commons page). It shows the subject, not the event. No AI badge.
+- **a source photo**: `credit` ("Image: The Guardian") and `creditUrl` (the page it came from). The article page's caption links there. No AI badge.
+- **an AI illustration**: `aiGenerated: true` and the credit "Illustration generated with AI". It wears the badge described below.
+- **a gradient**: neither field.
+
+The backend chooses (`COVER_IMAGE_MODE`, see its README): it tries a source photo first, never an agency/stock one and never on a
+sensitive story, then falls back to the AI illustration. `/legal-compliance` and the note under each story describe exactly this.
+
+## AI picture labels
+
+Story pictures are usually AI-generated illustrations, and each one is labelled where it appears:
+- **On the website** a small badge (`components/ui/AiBadge.tsx`) sits on the picture: "AI-generated illustration" on big pictures
+  (the lead story, a story's header, the article's main image; shortened to "AI-generated" on phones), "AI-generated" on card
+  thumbnails and "AI" on tiny ones. The article page also keeps its caption, "Illustration generated with AI".
+- **In the share image** (link previews, Telegram) the backend paints the same label onto the picture itself, because those
+  show the image away from the page. Search engines are given only that labelled share image, not the unlabelled cover
+  (`seo/json-ld.ts`).
+- **No picture can skip it:** `tests/ai-badge.test.tsx` fails if any component that draws a story cover does not use the badge.
+- A picture counts as AI-generated when it has a `credit` (the exporter writes one only for AI covers): `isAiGenerated()` in `core/article.ts`.
