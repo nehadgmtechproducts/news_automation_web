@@ -88,6 +88,22 @@ DOCKER_PLATFORM=linux/amd64                  # a normal Linux server (NOT the Ap
 GENERATE_VIDEO=false
 ```
 
+### Keep the secrets on the server only
+
+The keys and the Telegram token live in **one** place: the backend's `.env` on the server. Never in git, chat, tickets or screenshots.
+
+```bash
+cd /srv/news/content_automation
+umask 077 && nano .env && chmod 600 .env        # only the owner can read it
+ls -l .env                                      # must start with -rw-------
+git config core.hooksPath .githooks             # once per clone: git then refuses to commit a secret
+```
+
+- **Use NEW values on the server.** The NVIDIA key pasted into a chat while developing is compromised: create a new one at build.nvidia.com, put it in the server's `.env`, then delete the old key there. If the Telegram bot token was ever shared, send `/revoke` to @BotFather and use the new token.
+- Each container gets only the secrets it needs (`docker-compose.yml`): the worker has the AI and Telegram keys, the approvals listener only Telegram, the scheduler none.
+- To change a secret later: edit `.env`, then `docker compose up -d` (the containers pick it up when recreated).
+- Never run `docker compose config` or `docker inspect` in a screenshot you share: they print every value.
+
 Then start it. The database is empty the first time, so create its tables before starting the rest:
 
 ```bash
@@ -191,3 +207,4 @@ Turn on the provider's automatic server snapshots as well.
 - **Name the Grievance Officer.** Set `GRIEVANCE_OFFICER_NAME`, `GRIEVANCE_OFFICER_EMAIL` and `GRIEVANCE_OFFICER_ADDRESS` in `deploy/.env`: a real person with a real mailbox, as the IT Rules, 2021 require of a news publisher. `/legal-compliance` and the note under every story show them; with them unset the page names nobody and the server logs a warning.
 - **Have `/legal-compliance` and the note under each story reviewed by a media or IP lawyer.** They describe our practice and cite statutes; they are not legal advice, and a disclaimer only protects a publisher whose practice matches it.
 - Put the page's address (`https://your-domain/legal-compliance`) in your social media bios.
+- **Check nothing but SSH, 80 and 443 is open to the internet.** On the server run `ss -tlnp` and look at the "Local Address" column: the database (5432) and Redis (6379) must show `127.0.0.1`, never `0.0.0.0` or `*`. (The backend's compose file already binds them to 127.0.0.1; Docker's own firewall rules would otherwise bypass `ufw` and expose them.) Also check from your laptop: `nc -vz YOUR_VPS_IP 5432` must fail.
